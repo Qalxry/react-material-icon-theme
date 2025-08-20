@@ -120,5 +120,3 @@ export function MaterialIcon({
     />
   );
 }
-
-export default MaterialIcon;

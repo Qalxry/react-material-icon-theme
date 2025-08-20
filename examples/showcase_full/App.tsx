@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { IconThemeProvider } from '../context/IconThemeContext';
+import { IconThemeProvider } from "react-material-icon-theme";
 import { SearchBar } from './components/SearchBar';
 import { FilterTabs, FilterCategory } from './components/FilterTabs';
 import { IconGrid } from './components/IconGrid';

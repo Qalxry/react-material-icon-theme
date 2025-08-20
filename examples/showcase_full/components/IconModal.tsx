@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MaterialIcon } from '../../components/MaterialIcon';
+import { MaterialIcon } from "react-material-icon-theme";
 import { IconInfo } from './IconCard';
 
 interface IconModalProps {

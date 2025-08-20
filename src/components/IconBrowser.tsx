@@ -278,5 +278,3 @@ export function IconBrowser({
     </div>
   );
 }
-
-export default IconBrowser;

@@ -46,5 +46,3 @@ export function LanguageIcon({
 
   return <MaterialIcon name={iconName} {...iconProps} />;
 }
-
-export default LanguageIcon;

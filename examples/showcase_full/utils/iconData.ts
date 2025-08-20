@@ -2,7 +2,7 @@ import {
   getAllFileIcons, 
   getAllFolderIcons, 
   getAllLanguageIcons 
-} from '../../utils/iconMatcher';
+} from "react-material-icon-theme";
 import { IconInfo } from '../components/IconCard';
 
 export function getAllIcons(): IconInfo[] {

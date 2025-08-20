@@ -90,5 +90,3 @@ export function useIconTheme(initialConfig?: Partial<IconThemeConfig>) {
     resetConfig,
   };
 }
-
-export default useIconTheme;

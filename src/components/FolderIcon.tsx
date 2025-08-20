@@ -46,5 +46,3 @@ export function FolderIcon({
 
   return <MaterialIcon name={iconName} {...iconProps} />;
 }
-
-export default FolderIcon;

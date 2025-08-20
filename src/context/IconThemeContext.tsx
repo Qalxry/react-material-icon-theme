@@ -33,5 +33,3 @@ export const useIconThemeContext = (): IconThemeContextType => {
   }
   return context;
 };
-
-export default IconThemeProvider;

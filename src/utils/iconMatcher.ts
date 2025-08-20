@@ -3,7 +3,7 @@ import { folderIcons } from "../core/icons/folderIcons";
 import { languageIcons } from "../core/icons/languageIcons";
 import type { FileIcon as FileIconType } from "../core/models/icons/files/fileIcon";
 import type { FolderIcon as FolderIconType } from "../core/models/icons/folders/folderIcon";
-import type { LanguageIcon } from "../core/models/icons/languages/languageIdentifier";
+import type { LanguageIcon as LanguageIconType } from "../core/models/icons/languages/languageIdentifier";
 
 export interface GetFileIconOptions {
   fileName?: string;
@@ -19,6 +19,12 @@ export interface GetFolderIconOptions {
   isRoot?: boolean;
   isOpen?: boolean;
   theme?: string;
+  fallback?: string;
+}
+
+export interface GetLanguageIconOptions {
+  languageId: string;
+  iconPack?: string;
   fallback?: string;
 }
 
@@ -87,9 +93,29 @@ export function getFolderIcon(options: GetFolderIconOptions): string {
 }
 
 /**
+ * Get the appropriate language icon name based on language ID
+ */
+export function getLanguageIcon(options: GetLanguageIconOptions): string {
+  const { languageId, iconPack = "angular", fallback = "file" } = options;
+
+  if (!languageId) {
+    return fallback;
+  }
+
+  const langIcon = findLanguageIcon(languageId, iconPack);
+
+  if (langIcon) {
+    return langIcon.name;
+  }
+
+  // Fallback to default file icon if no language icon found
+  return fallback;
+}
+
+/**
  * Find file icon by file name
  */
-function findFileIconByName(fileName: string, iconPack: string): FileIconType | undefined {
+function findFileIconByName(fileName: string, iconPack?: string): FileIconType | undefined {
   return fileIcons.icons.find((icon) => {
     if (icon.disabled || (icon.enabledFor && !icon.enabledFor.some((pack) => pack.toString() === iconPack))) {
       return false;
@@ -101,7 +127,7 @@ function findFileIconByName(fileName: string, iconPack: string): FileIconType | 
 /**
  * Find file icon by file extension
  */
-function findFileIconByExtension(extension: string, iconPack: string): FileIconType | undefined {
+function findFileIconByExtension(extension: string, iconPack?: string): FileIconType | undefined {
   // Remove leading dot if present
   const cleanExtension = extension.startsWith(".") ? extension.slice(1) : extension;
 
@@ -116,7 +142,7 @@ function findFileIconByExtension(extension: string, iconPack: string): FileIconT
 /**
  * Find language icon by language ID
  */
-function findLanguageIcon(languageId: string, iconPack: string): LanguageIcon | undefined {
+function findLanguageIcon(languageId: string, iconPack?: string): LanguageIconType | undefined {
   return languageIcons.find((icon) => {
     if (icon.disabled || (icon.enabledFor && !icon.enabledFor.some((pack) => pack.toString() === iconPack))) {
       return false;
@@ -355,14 +381,14 @@ export function getAllFolderIcons(): FolderIconType[] {
   if (!specificTheme || !specificTheme.icons) {
     return [];
   }
-  
+
   return specificTheme.icons.filter((icon) => !icon.disabled);
 }
 
 /**
  * Get all language icons
  */
-export function getAllLanguageIcons(iconPack: string = "angular"): LanguageIcon[] {
+export function getAllLanguageIcons(iconPack: string = "angular"): LanguageIconType[] {
   return languageIcons.filter((icon) => {
     return !icon.disabled && (!icon.enabledFor || icon.enabledFor.some((pack) => pack.toString() === iconPack));
   });

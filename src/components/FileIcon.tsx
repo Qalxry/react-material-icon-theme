@@ -46,5 +46,3 @@ export function FileIcon({
 
   return <MaterialIcon name={iconName} {...iconProps} />;
 }
-
-export default FileIcon;
