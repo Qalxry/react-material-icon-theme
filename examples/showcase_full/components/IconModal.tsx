@@ -8,11 +8,11 @@ interface IconModalProps {
   onClose: () => void;
 }
 
-export const IconModal: React.FC<IconModalProps> = ({
+export function IconModal({
   icon,
   isOpen,
   onClose
-}) => {
+}: IconModalProps) {
   const [copiedText, setCopiedText] = useState<string | null>(null);
 
   if (!isOpen || !icon) return null;
@@ -133,4 +133,4 @@ export const IconModal: React.FC<IconModalProps> = ({
       </div>
     </>
   );
-};
+}

@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { MaterialIcon } from './MaterialIcon';
-import { getAllIconsWithCategories, searchIcons, type IconCategory, type IconInfo } from '../utils/iconMatcher';
+import { getAllIconsWithCategories, searchIcons, type IconInfo } from '../utils/iconMatcher';
 
 export interface IconBrowserProps {
   /**
@@ -39,7 +39,7 @@ export interface IconBrowserProps {
   onIconClick?: (iconInfo: IconInfo) => void;
 }
 
-export const IconBrowser: React.FC<IconBrowserProps> = ({
+export function IconBrowser({
   maxIcons = 200,
   searchFilter = '',
   iconSize = 32,
@@ -47,7 +47,7 @@ export const IconBrowser: React.FC<IconBrowserProps> = ({
   columns = 8,
   iconPack = 'angular',
   onIconClick,
-}) => {
+}: IconBrowserProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const { categories, filteredIcons } = useMemo(() => {
@@ -277,6 +277,6 @@ export const IconBrowser: React.FC<IconBrowserProps> = ({
       )}
     </div>
   );
-};
+}
 
 export default IconBrowser;

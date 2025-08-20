@@ -8,11 +8,14 @@ export default defineConfig({
     react(),
     dts({
       insertTypesEntry: true,
-      include: [
-        'src/components',
-        'src/iconData.ts',
-        'src/index.ts'
-      ],
+      // include: [
+      //   'src/components/FileIcon.tsx',
+      //   'src/components/FolderIcon.tsx',
+      //   'src/components/IconBrowser.tsx',
+      //   'src/components/MaterialIcon.tsx',
+      //   'src/iconData.ts',
+      //   'src/index.ts'
+      // ],
       outDir: 'dist',
       rollupTypes: true
     }),
@@ -35,28 +38,28 @@ export default defineConfig({
         }
       },
     },
-    rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: [
-        {
-          format: 'es',
-          entryFileNames: 'index.esm.js',
-        },
-        {
-          format: 'cjs',
-          entryFileNames: 'index.cjs.js',
-          exports: 'named'
-        },
-        {
-          format: 'umd',
-          entryFileNames: 'index.umd.js',
-          name: 'ReactMaterialIconTheme',
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDOM',
-          },
-        }
-      ]
-    },
+    // rollupOptions: {
+    //   external: ['react', 'react-dom'],
+    //   output: [
+    //     {
+    //       format: 'es',
+    //       entryFileNames: 'index.esm.js',
+    //     },
+    //     {
+    //       format: 'cjs',
+    //       entryFileNames: 'index.cjs.js',
+    //       exports: 'named'
+    //     },
+    //     {
+    //       format: 'umd',
+    //       entryFileNames: 'index.umd.js',
+    //       name: 'ReactMaterialIconTheme',
+    //       globals: {
+    //         react: 'React',
+    //         'react-dom': 'ReactDOM',
+    //       },
+    //     }
+    //   ]
+    // },
   },
 })

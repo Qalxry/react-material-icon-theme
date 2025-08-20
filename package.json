@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js", 
+  "module": "dist/index.esm.js",
   "umd": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "exports": {
@@ -37,7 +37,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Qalxry/react-material-icon-theme.git"
+    "url": "git+https://github.com/Qalxry/react-material-icon-theme.git"
   },
   "homepage": "https://github.com/Qalxry/react-material-icon-theme#readme",
   "bugs": {

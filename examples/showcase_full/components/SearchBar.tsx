@@ -7,12 +7,12 @@ interface SearchBarProps {
   placeholder?: string;
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({
+export function SearchBar({
   value,
   onChange,
   onClear,
   placeholder = "Search icons..."
-}) => {
+}: SearchBarProps) {
   return (
     <div className="search-bar">
       <div className="search-input-container">
@@ -43,4 +43,4 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       </div>
     </div>
   );
-};
+}

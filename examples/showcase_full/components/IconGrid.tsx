@@ -8,12 +8,12 @@ interface IconGridProps {
   loading?: boolean;
 }
 
-export const IconGrid: React.FC<IconGridProps> = ({
+export function IconGrid({
   icons,
   searchQuery,
   onIconClick,
   loading = false
-}) => {
+}: IconGridProps) {
   const filteredIcons = useMemo(() => {
     if (!searchQuery.trim()) {
       return icons;
@@ -83,4 +83,4 @@ export const IconGrid: React.FC<IconGridProps> = ({
       </div>
     </div>
   );
-};
+}

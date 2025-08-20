@@ -1,12 +1,12 @@
-import React, { createContext, useContext, ReactNode } from 'react';
-import { useIconTheme, IconThemeConfig } from '../hooks/useIconTheme';
+import { createContext, useContext, ReactNode } from "react";
+import { useIconTheme, IconThemeConfig } from "../hooks/useIconTheme";
 
 interface IconThemeContextType {
   config: IconThemeConfig;
   updateConfig: (updates: Partial<IconThemeConfig>) => void;
   setIconPack: (iconPack: string) => void;
   setLightTheme: (lightTheme: boolean) => void;
-  setFolderTheme: (folderTheme: IconThemeConfig['folderTheme']) => void;
+  setFolderTheme: (folderTheme: IconThemeConfig["folderTheme"]) => void;
   setOpacity: (opacity: number) => void;
   setSaturation: (saturation: number) => void;
   setColor: (color?: string) => void;
@@ -20,23 +20,16 @@ export interface IconThemeProviderProps {
   initialConfig?: Partial<IconThemeConfig>;
 }
 
-export const IconThemeProvider: React.FC<IconThemeProviderProps> = ({
-  children,
-  initialConfig,
-}) => {
+export function IconThemeProvider({ children, initialConfig }: IconThemeProviderProps) {
   const themeApi = useIconTheme(initialConfig);
 
-  return (
-    <IconThemeContext.Provider value={themeApi}>
-      {children}
-    </IconThemeContext.Provider>
-  );
-};
+  return <IconThemeContext.Provider value={themeApi}>{children}</IconThemeContext.Provider>;
+}
 
 export const useIconThemeContext = (): IconThemeContextType => {
   const context = useContext(IconThemeContext);
   if (context === undefined) {
-    throw new Error('useIconThemeContext must be used within an IconThemeProvider');
+    throw new Error("useIconThemeContext must be used within an IconThemeProvider");
   }
   return context;
 };

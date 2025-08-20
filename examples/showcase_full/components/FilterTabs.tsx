@@ -8,11 +8,11 @@ interface FilterTabsProps {
   counts: Record<FilterCategory, number>;
 }
 
-export const FilterTabs: React.FC<FilterTabsProps> = ({
+export function FilterTabs({
   activeCategory,
   onCategoryChange,
   counts
-}) => {
+}: FilterTabsProps) {
   const tabs = [
     { id: 'all' as const, label: 'All Icons', icon: 'grid-3x3' },
     { id: 'files' as const, label: 'File Icons', icon: 'file' },
@@ -39,4 +39,4 @@ export const FilterTabs: React.FC<FilterTabsProps> = ({
       ))}
     </div>
   );
-};
+}
