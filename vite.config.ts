@@ -10,9 +10,12 @@ export default defineConfig({
       insertTypesEntry: true,
       outDir: "dist",
       rollupTypes: true,
+      copyDtsFiles: true,
+      include: ["src/**/*"],
     }),
   ],
   build: {
+    sourcemap: true,
     lib: {
       entry: "src/index.ts",
       name: "ReactMaterialIconTheme",

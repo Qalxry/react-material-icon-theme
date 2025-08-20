@@ -1,6 +1,6 @@
 {
   "name": "react-material-icon-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Material Design icons for React applications, extracted from VS Code Material Icon Theme",
   "author": "Qalxry",
   "license": "MIT",
@@ -17,7 +17,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "dev": "vite",
@@ -73,8 +74,5 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-plugin-dts": "^3.8.3"
-  },
-  "dependencies": {
-    "chroma-js": "^3.1.2"
   }
 }
