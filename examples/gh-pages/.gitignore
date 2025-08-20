@@ -10,8 +10,6 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-build
-test
 *.local
 
 # Editor directories and files
@@ -24,5 +22,3 @@ test
 *.njsproj
 *.sln
 *.sw?
-
-# gh-pages
