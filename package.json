@@ -1,6 +1,6 @@
 {
   "name": "react-material-icon-theme",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Material Design icons for React applications, extracted from VS Code Material Icon Theme",
   "author": "Qalxry",
   "license": "MIT",
@@ -26,7 +26,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "type-check": "tsc --noEmit",
-    "generate:icons": "node scripts/generate-icons.js"
+    "generate:icons": "node scripts/generate-icons.js",
+    "deploy": "npm run build && npm publish"
   },
   "keywords": [
     "react",
