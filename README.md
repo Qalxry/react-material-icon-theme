@@ -1,5 +1,8 @@
 # React Material Icon Theme
 
+> ![WARNING]
+> Only React 18 is supported. This package is not compatible with earlier or later versions of React.
+
 A React package that brings the beautiful Material Icon Theme from VS Code to your React applications. This package extracts and adapts the complete icon system from the popular VS Code Material Icon Theme extension.
 
 ## Features
@@ -45,48 +48,6 @@ function App() {
 }
 ```
 
-### With Theme Provider
-
-```tsx
-import { 
-  IconThemeProvider, 
-  useIconThemeContext, 
-  FileIcon 
-} from 'react-material-icon-theme';
-
-function ThemeControls() {
-  const { config, setIconPack, setLightTheme } = useIconThemeContext();
-  
-  return (
-    <div>
-      <select value={config.iconPack} onChange={(e) => setIconPack(e.target.value)}>
-        <option value="angular">Angular</option>
-        <option value="react">React</option>
-        <option value="vue">Vue</option>
-      </select>
-      
-      <label>
-        <input 
-          type="checkbox" 
-          checked={config.lightTheme}
-          onChange={(e) => setLightTheme(e.target.checked)}
-        />
-        Light Theme
-      </label>
-    </div>
-  );
-}
-
-function App() {
-  return (
-    <IconThemeProvider initialConfig={{ iconPack: 'react' }}>
-      <ThemeControls />
-      <FileIcon fileName="component.tsx" size={32} />
-    </IconThemeProvider>
-  );
-}
-```
-
 ## Components
 
 ### MaterialIcon
@@ -105,7 +66,8 @@ The base icon component for displaying any icon by name.
 ```
 
 **Props:**
-- `name` (string): Icon name without extension
+
+- `name` (string): Icon SVG file name without extension
 - `size` (number | string): Icon size in pixels
 - `color` (string): Icon color (CSS color value)
 - `opacity` (number): Icon opacity (0-1)
@@ -136,6 +98,7 @@ Automatically detects and displays the appropriate icon for files.
 ```
 
 **Props:**
+
 - Inherits all `MaterialIcon` props except `name`
 - `fileName` (string): Complete file name with extension
 - `fileExtension` (string): File extension (with or without dot)
@@ -162,6 +125,7 @@ Displays appropriate folder icons with support for open/closed states.
 ```
 
 **Props:**
+
 - Inherits all `MaterialIcon` props except `name`
 - `folderName` (string): Folder name
 - `isRoot` (boolean): Whether this is a root folder
@@ -181,30 +145,6 @@ A component for browsing and selecting from available icons.
   columns={8}
   onIconClick={(iconName) => console.log('Selected:', iconName)}
 />
-```
-
-## Hooks
-
-### useIconTheme
-
-Hook for managing icon theme configuration.
-
-```tsx
-const {
-  config,
-  setIconPack,
-  setLightTheme,
-  setFolderTheme,
-  setOpacity,
-  setSaturation,
-  resetConfig
-} = useIconTheme({
-  iconPack: 'react',
-  lightTheme: false,
-  folderTheme: 'specific',
-  opacity: 1,
-  saturation: 1
-});
 ```
 
 ## Utility Functions
@@ -228,24 +168,6 @@ const iconName = getFileIcon({
 // Get all available file extensions
 const extensions = getAvailableFileExtensions();
 ```
-
-## Icon Packs
-
-The package supports multiple icon packs that provide different variants for framework-specific files:
-
-- **angular** - Angular-specific icons (default)
-- **react** - React-specific icons  
-- **vue** - Vue-specific icons
-- **nest** - NestJS-specific icons
-- **none** - No pack-specific icons
-
-## Folder Themes
-
-Three folder themes are available:
-
-- **specific** - Shows unique icons for recognized folder names (default)
-- **classic** - Simple folder icons with open/closed states
-- **none** - Minimal folder representation
 
 ## Development
 
