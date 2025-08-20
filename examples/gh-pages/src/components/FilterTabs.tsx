@@ -27,7 +27,7 @@ export function FilterTabs({
           className={`filter-tab ${activeCategory === tab.id ? 'active' : ''}`}
         >
           <img 
-            src={`/icons/${tab.icon}.svg`}
+            src={`icons/${tab.icon}.svg`}
             alt={tab.label}
             className="tab-icon"
           />

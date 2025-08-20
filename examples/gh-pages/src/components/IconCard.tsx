@@ -64,7 +64,7 @@ export function IconCard({ icon, size = 32, onClick }: IconCardProps) {
       {isHovered && (
         <div className="icon-actions">
           <button className={`copy-button ${isCopied ? "copied" : ""}`} onClick={handleCopy} title="Copy icon name">
-            <img src={`/icons/${isCopied ? "check" : "copy"}.svg`} alt={isCopied ? "Copied" : "Copy"} />
+            <img src={`icons/${isCopied ? "check" : "copy"}.svg`} alt={isCopied ? "Copied" : "Copy"} />
           </button>
         </div>
       )}

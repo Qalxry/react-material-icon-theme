@@ -70,7 +70,7 @@ function App() {
           <div className="header-content">
             <div className="header-main">
               <div className="header-text">
-                <h1>Material Icon Theme</h1>
+                <h1>React Material Icon Theme</h1>
                 <p>Beautiful Material Design icons for React applications, extracted from VS Code Material Icon Theme</p>
               </div>
               <a 
@@ -80,7 +80,7 @@ function App() {
                 className="github-link"
                 aria-label="View on GitHub"
               >
-                <img src="/icons/github.svg" alt="GitHub" className="github-icon" />
+                <img src="icons/github.svg" alt="GitHub" className="github-icon" />
                 <span>View on GitHub</span>
               </a>
             </div>

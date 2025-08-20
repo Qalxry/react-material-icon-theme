@@ -91,7 +91,7 @@ export function IconModal({ icon, isOpen, onClose }: IconModalProps) {
         <div className="modal-header">
           <h2>{icon.name}</h2>
           <button className="modal-close" onClick={onClose}>
-            <img src="/icons/x.svg" alt="Close" />
+            <img src="icons/x.svg" alt="Close" />
           </button>
         </div>
 
@@ -145,7 +145,7 @@ export function IconModal({ icon, isOpen, onClose }: IconModalProps) {
                         className={`copy-code-button ${copiedText === example.title ? "copied" : ""}`}
                         onClick={() => copyToClipboard(example.code, example.title)}
                       >
-                        <img src={`/icons/${copiedText === example.title ? "check" : "copy"}.svg`} alt="Copy" />
+                        <img src={`icons/${copiedText === example.title ? "check" : "copy"}.svg`} alt="Copy" />
                         {copiedText === example.title ? "Copied!" : "Copy"}
                       </button>
                     </div>

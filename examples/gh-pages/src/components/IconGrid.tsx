@@ -34,7 +34,7 @@ export function IconGrid({
       <div className="icon-grid-loading">
         <div className="loading-spinner">
           <img 
-            src="/icons/loader-2.svg"
+            src="icons/loader-2.svg"
             alt="Loading"
             className="spinner"
           />
@@ -48,7 +48,7 @@ export function IconGrid({
     return (
       <div className="icon-grid-empty">
         <img 
-          src="/icons/search-x.svg"
+          src="icons/search-x.svg"
           alt="No results"
           className="empty-icon"
         />

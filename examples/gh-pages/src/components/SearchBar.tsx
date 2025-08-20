@@ -15,7 +15,7 @@ export function SearchBar({
     <div className="search-bar">
       <div className="search-input-container">
         <img 
-          src="/icons/search.svg" 
+          src="icons/search.svg" 
           alt="Search"
           className="search-icon"
         />
@@ -33,7 +33,7 @@ export function SearchBar({
             aria-label="Clear search"
           >
             <img 
-              src="/icons/x.svg" 
+              src="icons/x.svg" 
               alt="Clear"
             />
           </button>
