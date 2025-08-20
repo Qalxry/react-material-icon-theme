@@ -25,4 +25,4 @@ test
 *.sln
 *.sw?
 
-# gh-pages
+.old
