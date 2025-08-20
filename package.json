@@ -1,0 +1,80 @@
+{
+  "name": "react-material-icon-theme",
+  "version": "1.0.0",
+  "description": "Material Design icons for React applications, extracted from VS Code Material Icon Theme",
+  "author": "Qalxry",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js", 
+  "umd": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run generate:icons && tsc -p tsconfig.build.json && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "type-check": "tsc --noEmit",
+    "generate:icons": "node scripts/generate-icons.js"
+  },
+  "keywords": [
+    "react",
+    "icons",
+    "material-design",
+    "vscode",
+    "icon-theme",
+    "svg"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Qalxry/react-material-icon-theme.git"
+  },
+  "homepage": "https://github.com/Qalxry/react-material-icon-theme#readme",
+  "bugs": {
+    "url": "https://github.com/Qalxry/react-material-icon-theme/issues"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": false
+    },
+    "react-dom": {
+      "optional": false
+    }
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.8.3"
+  },
+  "dependencies": {
+    "chroma-js": "^3.1.2"
+  }
+}

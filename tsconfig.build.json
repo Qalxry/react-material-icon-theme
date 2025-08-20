@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "src/components/MaterialIcon.tsx",
+    "src/iconData.ts", 
+    "src/index.ts"
+  ],
+}
