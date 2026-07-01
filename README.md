@@ -1,8 +1,7 @@
 # React Material Icon Theme
 
-> [!WARNING]
-> Only React 18 is supported. This package is not compatible with earlier or later versions of React.
-> If you want to use this package without React 18, please build it from source.
+> [!NOTE]
+> Compatible with React 17, 18, and 19.
 
 A React package that brings the beautiful Material Icon Theme from VS Code to your React applications. This package extracts and adapts the complete icon system from the popular VS Code Material Icon Theme extension.
 

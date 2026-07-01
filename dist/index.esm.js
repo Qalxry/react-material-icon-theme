@@ -1,631 +1,280 @@
-import C1, { useMemo as u2, useState as z2, useCallback as j, createContext as A2, useContext as V2 } from "react";
-var s1 = { exports: {} }, G = {};
+import r1, { useMemo as n1, useState as m1, useCallback as M, createContext as d1, useContext as g1 } from "react";
+var _ = { exports: {} }, V = {};
 /**
  * @license React
- * react-jsx-runtime.production.min.js
+ * react-jsx-runtime.production.js
  *
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var E1;
-function y2() {
-  if (E1) return G;
-  E1 = 1;
-  var s = C1, l = Symbol.for("react.element"), o = Symbol.for("react.fragment"), c = Object.prototype.hasOwnProperty, f = s.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, d = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function w(h, n, y) {
-    var u, H = {}, B = null, L = null;
-    y !== void 0 && (B = "" + y), n.key !== void 0 && (B = "" + n.key), n.ref !== void 0 && (L = n.ref);
-    for (u in n) c.call(n, u) && !d.hasOwnProperty(u) && (H[u] = n[u]);
-    if (h && h.defaultProps) for (u in n = h.defaultProps, n) H[u] === void 0 && (H[u] = n[u]);
-    return { $$typeof: l, type: h, key: B, ref: L, props: H, _owner: f.current };
+var I;
+function p1() {
+  if (I) return V;
+  I = 1;
+  var e = Symbol.for("react.transitional.element"), a = Symbol.for("react.fragment");
+  function h(c, v, i) {
+    var r = null;
+    if (i !== void 0 && (r = "" + i), v.key !== void 0 && (r = "" + v.key), "key" in v) {
+      i = {};
+      for (var o in v)
+        o !== "key" && (i[o] = v[o]);
+    } else i = v;
+    return v = i.ref, {
+      $$typeof: e,
+      type: c,
+      key: r,
+      ref: v !== void 0 ? v : null,
+      props: i
+    };
   }
-  return G.Fragment = o, G.jsx = w, G.jsxs = w, G;
+  return V.Fragment = a, V.jsx = h, V.jsxs = h, V;
 }
-var O = {};
+var B = {};
 /**
  * @license React
  * react-jsx-runtime.development.js
  *
- * Copyright (c) Facebook, Inc. and its affiliates.
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var N1;
-function B2() {
-  return N1 || (N1 = 1, process.env.NODE_ENV !== "production" && function() {
-    var s = C1, l = Symbol.for("react.element"), o = Symbol.for("react.portal"), c = Symbol.for("react.fragment"), f = Symbol.for("react.strict_mode"), d = Symbol.for("react.profiler"), w = Symbol.for("react.provider"), h = Symbol.for("react.context"), n = Symbol.for("react.forward_ref"), y = Symbol.for("react.suspense"), u = Symbol.for("react.suspense_list"), H = Symbol.for("react.memo"), B = Symbol.for("react.lazy"), L = Symbol.for("react.offscreen"), i1 = Symbol.iterator, T1 = "@@iterator";
-    function R1(a) {
-      if (a === null || typeof a != "object")
-        return null;
-      var e = i1 && a[i1] || a[T1];
-      return typeof e == "function" ? e : null;
-    }
-    var q = s.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    function z(a) {
-      {
-        for (var e = arguments.length, v = new Array(e > 1 ? e - 1 : 0), r = 1; r < e; r++)
-          v[r - 1] = arguments[r];
-        G1("error", a, v);
-      }
-    }
-    function G1(a, e, v) {
-      {
-        var r = q.ReactDebugCurrentFrame, p = r.getStackAddendum();
-        p !== "" && (e += "%s", v = v.concat([p]));
-        var x = v.map(function(g) {
-          return String(g);
-        });
-        x.unshift("Warning: " + e), Function.prototype.apply.call(console[a], console, x);
-      }
-    }
-    var O1 = !1, U1 = !1, $1 = !1, P1 = !1, D1 = !1, o1;
-    o1 = Symbol.for("react.module.reference");
-    function I1(a) {
-      return !!(typeof a == "string" || typeof a == "function" || a === c || a === d || D1 || a === f || a === y || a === u || P1 || a === L || O1 || U1 || $1 || typeof a == "object" && a !== null && (a.$$typeof === B || a.$$typeof === H || a.$$typeof === w || a.$$typeof === h || a.$$typeof === n || // This needs to include all possible module reference object
-      // types supported by any Flight configuration anywhere since
-      // we don't know which Flight build this will end up being used
-      // with.
-      a.$$typeof === o1 || a.getModuleId !== void 0));
-    }
-    function Y1(a, e, v) {
-      var r = a.displayName;
-      if (r)
-        return r;
-      var p = e.displayName || e.name || "";
-      return p !== "" ? v + "(" + p + ")" : v;
-    }
-    function v1(a) {
-      return a.displayName || "Context";
-    }
-    function Z(a) {
-      if (a == null)
-        return null;
-      if (typeof a.tag == "number" && z("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof a == "function")
-        return a.displayName || a.name || null;
-      if (typeof a == "string")
-        return a;
-      switch (a) {
-        case c:
+var D;
+function w1() {
+  return D || (D = 1, process.env.NODE_ENV !== "production" && function() {
+    function e(l) {
+      if (l == null) return null;
+      if (typeof l == "function")
+        return l.$$typeof === o1 ? null : l.displayName || l.name || null;
+      if (typeof l == "string") return l;
+      switch (l) {
+        case Z:
           return "Fragment";
-        case o:
-          return "Portal";
-        case d:
+        case a1:
           return "Profiler";
-        case f:
+        case K:
           return "StrictMode";
-        case y:
+        case t1:
           return "Suspense";
-        case u:
+        case c1:
           return "SuspenseList";
+        case v1:
+          return "Activity";
       }
-      if (typeof a == "object")
-        switch (a.$$typeof) {
-          case h:
-            var e = a;
-            return v1(e) + ".Consumer";
-          case w:
-            var v = a;
-            return v1(v._context) + ".Provider";
-          case n:
-            return Y1(a, a.render, "ForwardRef");
-          case H:
-            var r = a.displayName || null;
-            return r !== null ? r : Z(a.type) || "Memo";
-          case B: {
-            var p = a, x = p._payload, g = p._init;
+      if (typeof l == "object")
+        switch (typeof l.tag == "number" && console.error(
+          "Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."
+        ), l.$$typeof) {
+          case J:
+            return "Portal";
+          case e1:
+            return l.displayName || "Context";
+          case l1:
+            return (l._context.displayName || "Context") + ".Consumer";
+          case s1:
+            var f = l.render;
+            return l = l.displayName, l || (l = f.displayName || f.name || "", l = l !== "" ? "ForwardRef(" + l + ")" : "ForwardRef"), l;
+          case h1:
+            return f = l.displayName || null, f !== null ? f : e(l.type) || "Memo";
+          case j:
+            f = l._payload, l = l._init;
             try {
-              return Z(g(x));
+              return e(l(f));
             } catch {
-              return null;
             }
-          }
         }
       return null;
     }
-    var E = Object.assign, T = 0, h1, r1, f1, n1, m1, d1, g1;
-    function p1() {
+    function a(l) {
+      return "" + l;
     }
-    p1.__reactDisabledLog = !0;
-    function Q1() {
-      {
-        if (T === 0) {
-          h1 = console.log, r1 = console.info, f1 = console.warn, n1 = console.error, m1 = console.group, d1 = console.groupCollapsed, g1 = console.groupEnd;
-          var a = {
-            configurable: !0,
-            enumerable: !0,
-            value: p1,
-            writable: !0
-          };
-          Object.defineProperties(console, {
-            info: a,
-            log: a,
-            warn: a,
-            error: a,
-            group: a,
-            groupCollapsed: a,
-            groupEnd: a
-          });
-        }
-        T++;
-      }
-    }
-    function W1() {
-      {
-        if (T--, T === 0) {
-          var a = {
-            configurable: !0,
-            enumerable: !0,
-            writable: !0
-          };
-          Object.defineProperties(console, {
-            log: E({}, a, {
-              value: h1
-            }),
-            info: E({}, a, {
-              value: r1
-            }),
-            warn: E({}, a, {
-              value: f1
-            }),
-            error: E({}, a, {
-              value: n1
-            }),
-            group: E({}, a, {
-              value: m1
-            }),
-            groupCollapsed: E({}, a, {
-              value: d1
-            }),
-            groupEnd: E({}, a, {
-              value: g1
-            })
-          });
-        }
-        T < 0 && z("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
-      }
-    }
-    var Q = q.ReactCurrentDispatcher, W;
-    function U(a, e, v) {
-      {
-        if (W === void 0)
-          try {
-            throw Error();
-          } catch (p) {
-            var r = p.stack.trim().match(/\n( *(at )?)/);
-            W = r && r[1] || "";
-          }
-        return `
-` + W + a;
-      }
-    }
-    var J = !1, $;
-    {
-      var J1 = typeof WeakMap == "function" ? WeakMap : Map;
-      $ = new J1();
-    }
-    function w1(a, e) {
-      if (!a || J)
-        return "";
-      {
-        var v = $.get(a);
-        if (v !== void 0)
-          return v;
-      }
-      var r;
-      J = !0;
-      var p = Error.prepareStackTrace;
-      Error.prepareStackTrace = void 0;
-      var x;
-      x = Q.current, Q.current = null, Q1();
+    function h(l) {
       try {
-        if (e) {
-          var g = function() {
-            throw Error();
-          };
-          if (Object.defineProperty(g.prototype, "props", {
-            set: function() {
-              throw Error();
-            }
-          }), typeof Reflect == "object" && Reflect.construct) {
-            try {
-              Reflect.construct(g, []);
-            } catch (V) {
-              r = V;
-            }
-            Reflect.construct(a, [], g);
-          } else {
-            try {
-              g.call();
-            } catch (V) {
-              r = V;
-            }
-            a.call(g.prototype);
-          }
-        } else {
-          try {
-            throw Error();
-          } catch (V) {
-            r = V;
-          }
-          a();
-        }
-      } catch (V) {
-        if (V && r && typeof V.stack == "string") {
-          for (var m = V.stack.split(`
-`), A = r.stack.split(`
-`), M = m.length - 1, b = A.length - 1; M >= 1 && b >= 0 && m[M] !== A[b]; )
-            b--;
-          for (; M >= 1 && b >= 0; M--, b--)
-            if (m[M] !== A[b]) {
-              if (M !== 1 || b !== 1)
-                do
-                  if (M--, b--, b < 0 || m[M] !== A[b]) {
-                    var k = `
-` + m[M].replace(" at new ", " at ");
-                    return a.displayName && k.includes("<anonymous>") && (k = k.replace("<anonymous>", a.displayName)), typeof a == "function" && $.set(a, k), k;
-                  }
-                while (M >= 1 && b >= 0);
-              break;
-            }
-        }
-      } finally {
-        J = !1, Q.current = x, W1(), Error.prepareStackTrace = p;
-      }
-      var _ = a ? a.displayName || a.name : "", N = _ ? U(_) : "";
-      return typeof a == "function" && $.set(a, N), N;
-    }
-    function K1(a, e, v) {
-      return w1(a, !1);
-    }
-    function X1(a) {
-      var e = a.prototype;
-      return !!(e && e.isReactComponent);
-    }
-    function P(a, e, v) {
-      if (a == null)
-        return "";
-      if (typeof a == "function")
-        return w1(a, X1(a));
-      if (typeof a == "string")
-        return U(a);
-      switch (a) {
-        case y:
-          return U("Suspense");
-        case u:
-          return U("SuspenseList");
-      }
-      if (typeof a == "object")
-        switch (a.$$typeof) {
-          case n:
-            return K1(a.render);
-          case H:
-            return P(a.type, e, v);
-          case B: {
-            var r = a, p = r._payload, x = r._init;
-            try {
-              return P(x(p), e, v);
-            } catch {
-            }
-          }
-        }
-      return "";
-    }
-    var R = Object.prototype.hasOwnProperty, x1 = {}, H1 = q.ReactDebugCurrentFrame;
-    function D(a) {
-      if (a) {
-        var e = a._owner, v = P(a.type, a._source, e ? e.type : null);
-        H1.setExtraStackFrame(v);
-      } else
-        H1.setExtraStackFrame(null);
-    }
-    function a2(a, e, v, r, p) {
-      {
-        var x = Function.call.bind(R);
-        for (var g in a)
-          if (x(a, g)) {
-            var m = void 0;
-            try {
-              if (typeof a[g] != "function") {
-                var A = Error((r || "React class") + ": " + v + " type `" + g + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof a[g] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
-                throw A.name = "Invariant Violation", A;
-              }
-              m = a[g](e, g, r, v, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
-            } catch (M) {
-              m = M;
-            }
-            m && !(m instanceof Error) && (D(p), z("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", r || "React class", v, g, typeof m), D(null)), m instanceof Error && !(m.message in x1) && (x1[m.message] = !0, D(p), z("Failed %s type: %s", v, m.message), D(null));
-          }
-      }
-    }
-    var l2 = Array.isArray;
-    function K(a) {
-      return l2(a);
-    }
-    function e2(a) {
-      {
-        var e = typeof Symbol == "function" && Symbol.toStringTag, v = e && a[Symbol.toStringTag] || a.constructor.name || "Object";
-        return v;
-      }
-    }
-    function s2(a) {
-      try {
-        return M1(a), !1;
+        a(l);
+        var f = !1;
       } catch {
-        return !0;
+        f = !0;
+      }
+      if (f) {
+        f = console;
+        var m = f.error, g = typeof Symbol == "function" && Symbol.toStringTag && l[Symbol.toStringTag] || l.constructor.name || "Object";
+        return m.call(
+          f,
+          "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
+          g
+        ), a(l);
       }
     }
-    function M1(a) {
-      return "" + a;
-    }
-    function b1(a) {
-      if (s2(a))
-        return z("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", e2(a)), M1(a);
-    }
-    var u1 = q.ReactCurrentOwner, t2 = {
-      key: !0,
-      ref: !0,
-      __self: !0,
-      __source: !0
-    }, z1, A1;
-    function c2(a) {
-      if (R.call(a, "ref")) {
-        var e = Object.getOwnPropertyDescriptor(a, "ref").get;
-        if (e && e.isReactWarning)
-          return !1;
-      }
-      return a.ref !== void 0;
-    }
-    function i2(a) {
-      if (R.call(a, "key")) {
-        var e = Object.getOwnPropertyDescriptor(a, "key").get;
-        if (e && e.isReactWarning)
-          return !1;
-      }
-      return a.key !== void 0;
-    }
-    function o2(a, e) {
-      typeof a.ref == "string" && u1.current;
-    }
-    function v2(a, e) {
-      {
-        var v = function() {
-          z1 || (z1 = !0, z("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", e));
-        };
-        v.isReactWarning = !0, Object.defineProperty(a, "key", {
-          get: v,
-          configurable: !0
-        });
+    function c(l) {
+      if (l === Z) return "<>";
+      if (typeof l == "object" && l !== null && l.$$typeof === j)
+        return "<...>";
+      try {
+        var f = e(l);
+        return f ? "<" + f + ">" : "<...>";
+      } catch {
+        return "<...>";
       }
     }
-    function h2(a, e) {
-      {
-        var v = function() {
-          A1 || (A1 = !0, z("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", e));
-        };
-        v.isReactWarning = !0, Object.defineProperty(a, "ref", {
-          get: v,
-          configurable: !0
-        });
-      }
+    function v() {
+      var l = E.A;
+      return l === null ? null : l.getOwner();
     }
-    var r2 = function(a, e, v, r, p, x, g) {
-      var m = {
-        // This tag allows us to uniquely identify this as a React Element
-        $$typeof: l,
-        // Built-in properties that belong on the element
-        type: a,
-        key: e,
-        ref: v,
-        props: g,
-        // Record the component responsible for creating this element.
-        _owner: x
-      };
-      return m._store = {}, Object.defineProperty(m._store, "validated", {
+    function i() {
+      return Error("react-stack-top-frame");
+    }
+    function r(l) {
+      if (G.call(l, "key")) {
+        var f = Object.getOwnPropertyDescriptor(l, "key").get;
+        if (f && f.isReactWarning) return !1;
+      }
+      return l.key !== void 0;
+    }
+    function o(l, f) {
+      function m() {
+        U || (U = !0, console.error(
+          "%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)",
+          f
+        ));
+      }
+      m.isReactWarning = !0, Object.defineProperty(l, "key", {
+        get: m,
+        configurable: !0
+      });
+    }
+    function n() {
+      var l = e(this.type);
+      return O[l] || (O[l] = !0, console.error(
+        "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
+      )), l = this.props.ref, l !== void 0 ? l : null;
+    }
+    function x(l, f, m, g, y, q) {
+      var p = m.ref;
+      return l = {
+        $$typeof: S,
+        type: l,
+        key: f,
+        props: m,
+        _owner: g
+      }, (p !== void 0 ? p : null) !== null ? Object.defineProperty(l, "ref", {
+        enumerable: !1,
+        get: n
+      }) : Object.defineProperty(l, "ref", { enumerable: !1, value: null }), l._store = {}, Object.defineProperty(l._store, "validated", {
         configurable: !1,
         enumerable: !1,
         writable: !0,
-        value: !1
-      }), Object.defineProperty(m, "_self", {
+        value: 0
+      }), Object.defineProperty(l, "_debugInfo", {
         configurable: !1,
         enumerable: !1,
-        writable: !1,
-        value: r
-      }), Object.defineProperty(m, "_source", {
+        writable: !0,
+        value: null
+      }), Object.defineProperty(l, "_debugStack", {
         configurable: !1,
         enumerable: !1,
-        writable: !1,
-        value: p
-      }), Object.freeze && (Object.freeze(m.props), Object.freeze(m)), m;
-    };
-    function f2(a, e, v, r, p) {
-      {
-        var x, g = {}, m = null, A = null;
-        v !== void 0 && (b1(v), m = "" + v), i2(e) && (b1(e.key), m = "" + e.key), c2(e) && (A = e.ref, o2(e, p));
-        for (x in e)
-          R.call(e, x) && !t2.hasOwnProperty(x) && (g[x] = e[x]);
-        if (a && a.defaultProps) {
-          var M = a.defaultProps;
-          for (x in M)
-            g[x] === void 0 && (g[x] = M[x]);
-        }
-        if (m || A) {
-          var b = typeof a == "function" ? a.displayName || a.name || "Unknown" : a;
-          m && v2(g, b), A && h2(g, b);
-        }
-        return r2(a, m, A, p, r, u1.current, g);
-      }
+        writable: !0,
+        value: y
+      }), Object.defineProperty(l, "_debugTask", {
+        configurable: !1,
+        enumerable: !1,
+        writable: !0,
+        value: q
+      }), Object.freeze && (Object.freeze(l.props), Object.freeze(l)), l;
     }
-    var X = q.ReactCurrentOwner, V1 = q.ReactDebugCurrentFrame;
-    function C(a) {
-      if (a) {
-        var e = a._owner, v = P(a.type, a._source, e ? e.type : null);
-        V1.setExtraStackFrame(v);
-      } else
-        V1.setExtraStackFrame(null);
-    }
-    var a1;
-    a1 = !1;
-    function l1(a) {
-      return typeof a == "object" && a !== null && a.$$typeof === l;
-    }
-    function y1() {
-      {
-        if (X.current) {
-          var a = Z(X.current.type);
-          if (a)
-            return `
-
-Check the render method of \`` + a + "`.";
-        }
-        return "";
-      }
-    }
-    function n2(a) {
-      return "";
-    }
-    var B1 = {};
-    function m2(a) {
-      {
-        var e = y1();
-        if (!e) {
-          var v = typeof a == "string" ? a : a.displayName || a.name;
-          v && (e = `
-
-Check the top-level render call using <` + v + ">.");
-        }
-        return e;
-      }
-    }
-    function L1(a, e) {
-      {
-        if (!a._store || a._store.validated || a.key != null)
-          return;
-        a._store.validated = !0;
-        var v = m2(e);
-        if (B1[v])
-          return;
-        B1[v] = !0;
-        var r = "";
-        a && a._owner && a._owner !== X.current && (r = " It was passed a child from " + Z(a._owner.type) + "."), C(a), z('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', v, r), C(null);
-      }
-    }
-    function k1(a, e) {
-      {
-        if (typeof a != "object")
-          return;
-        if (K(a))
-          for (var v = 0; v < a.length; v++) {
-            var r = a[v];
-            l1(r) && L1(r, e);
-          }
-        else if (l1(a))
-          a._store && (a._store.validated = !0);
-        else if (a) {
-          var p = R1(a);
-          if (typeof p == "function" && p !== a.entries)
-            for (var x = p.call(a), g; !(g = x.next()).done; )
-              l1(g.value) && L1(g.value, e);
-        }
-      }
-    }
-    function d2(a) {
-      {
-        var e = a.type;
-        if (e == null || typeof e == "string")
-          return;
-        var v;
-        if (typeof e == "function")
-          v = e.propTypes;
-        else if (typeof e == "object" && (e.$$typeof === n || // Note: Memo only checks outer props here.
-        // Inner props are checked in the reconciler.
-        e.$$typeof === H))
-          v = e.propTypes;
-        else
-          return;
-        if (v) {
-          var r = Z(e);
-          a2(v, a.props, "prop", r, a);
-        } else if (e.PropTypes !== void 0 && !a1) {
-          a1 = !0;
-          var p = Z(e);
-          z("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", p || "Unknown");
-        }
-        typeof e.getDefaultProps == "function" && !e.getDefaultProps.isReactClassApproved && z("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
-      }
-    }
-    function g2(a) {
-      {
-        for (var e = Object.keys(a.props), v = 0; v < e.length; v++) {
-          var r = e[v];
-          if (r !== "children" && r !== "key") {
-            C(a), z("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", r), C(null);
-            break;
-          }
-        }
-        a.ref !== null && (C(a), z("Invalid attribute `ref` supplied to `React.Fragment`."), C(null));
-      }
-    }
-    var Z1 = {};
-    function j1(a, e, v, r, p, x) {
-      {
-        var g = I1(a);
-        if (!g) {
-          var m = "";
-          (a === void 0 || typeof a == "object" && a !== null && Object.keys(a).length === 0) && (m += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var A = n2();
-          A ? m += A : m += y1();
-          var M;
-          a === null ? M = "null" : K(a) ? M = "array" : a !== void 0 && a.$$typeof === l ? (M = "<" + (Z(a.type) || "Unknown") + " />", m = " Did you accidentally export a JSX literal instead of a component?") : M = typeof a, z("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", M, m);
-        }
-        var b = f2(a, e, v, p, x);
-        if (b == null)
-          return b;
-        if (g) {
-          var k = e.children;
-          if (k !== void 0)
-            if (r)
-              if (K(k)) {
-                for (var _ = 0; _ < k.length; _++)
-                  k1(k[_], a);
-                Object.freeze && Object.freeze(k);
-              } else
-                z("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
-            else
-              k1(k, a);
-        }
-        if (R.call(e, "key")) {
-          var N = Z(a), V = Object.keys(e).filter(function(b2) {
-            return b2 !== "key";
-          }), e1 = V.length > 0 ? "{key: someKey, " + V.join(": ..., ") + ": ...}" : "{key: someKey}";
-          if (!Z1[N + e1]) {
-            var M2 = V.length > 0 ? "{" + V.join(": ..., ") + ": ...}" : "{}";
-            z(`A props object containing a "key" prop is being spread into JSX:
+    function b(l, f, m, g, y, q) {
+      var p = f.children;
+      if (p !== void 0)
+        if (g)
+          if (i1(p)) {
+            for (g = 0; g < p.length; g++)
+              d(p[g]);
+            Object.freeze && Object.freeze(p);
+          } else
+            console.error(
+              "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
+            );
+        else d(p);
+      if (G.call(f, "key")) {
+        p = e(l);
+        var z = Object.keys(f).filter(function(f1) {
+          return f1 !== "key";
+        });
+        g = 0 < z.length ? "{key: someKey, " + z.join(": ..., ") + ": ...}" : "{key: someKey}", P[p + g] || (z = 0 < z.length ? "{" + z.join(": ..., ") + ": ...}" : "{}", console.error(
+          `A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
-  <%s key={someKey} {...props} />`, e1, N, M2, N), Z1[N + e1] = !0;
-          }
-        }
-        return a === c ? g2(b) : d2(b), b;
+  <%s key={someKey} {...props} />`,
+          g,
+          p,
+          z,
+          p
+        ), P[p + g] = !0);
       }
+      if (p = null, m !== void 0 && (h(m), p = "" + m), r(f) && (h(f.key), p = "" + f.key), "key" in f) {
+        m = {};
+        for (var C in f)
+          C !== "key" && (m[C] = f[C]);
+      } else m = f;
+      return p && o(
+        m,
+        typeof l == "function" ? l.displayName || l.name || "Unknown" : l
+      ), x(
+        l,
+        p,
+        m,
+        v(),
+        y,
+        q
+      );
     }
-    function p2(a, e, v) {
-      return j1(a, e, v, !0);
+    function d(l) {
+      H(l) ? l._store && (l._store.validated = 1) : typeof l == "object" && l !== null && l.$$typeof === j && (l._payload.status === "fulfilled" ? H(l._payload.value) && l._payload.value._store && (l._payload.value._store.validated = 1) : l._store && (l._store.validated = 1));
     }
-    function w2(a, e, v) {
-      return j1(a, e, v, !1);
+    function H(l) {
+      return typeof l == "object" && l !== null && l.$$typeof === S;
     }
-    var x2 = w2, H2 = p2;
-    O.Fragment = c, O.jsx = x2, O.jsxs = H2;
-  }()), O;
+    var w = r1, S = Symbol.for("react.transitional.element"), J = Symbol.for("react.portal"), Z = Symbol.for("react.fragment"), K = Symbol.for("react.strict_mode"), a1 = Symbol.for("react.profiler"), l1 = Symbol.for("react.consumer"), e1 = Symbol.for("react.context"), s1 = Symbol.for("react.forward_ref"), t1 = Symbol.for("react.suspense"), c1 = Symbol.for("react.suspense_list"), h1 = Symbol.for("react.memo"), j = Symbol.for("react.lazy"), v1 = Symbol.for("react.activity"), o1 = Symbol.for("react.client.reference"), E = w.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, G = Object.prototype.hasOwnProperty, i1 = Array.isArray, N = console.createTask ? console.createTask : function() {
+      return null;
+    };
+    w = {
+      react_stack_bottom_frame: function(l) {
+        return l();
+      }
+    };
+    var U, O = {}, $ = w.react_stack_bottom_frame.bind(
+      w,
+      i
+    )(), R = N(c(i)), P = {};
+    B.Fragment = Z, B.jsx = function(l, f, m) {
+      var g = 1e4 > E.recentlyCreatedOwnerStacks++;
+      return b(
+        l,
+        f,
+        m,
+        !1,
+        g ? Error("react-stack-top-frame") : $,
+        g ? N(c(l)) : R
+      );
+    }, B.jsxs = function(l, f, m) {
+      var g = 1e4 > E.recentlyCreatedOwnerStacks++;
+      return b(
+        l,
+        f,
+        m,
+        !0,
+        g ? Error("react-stack-top-frame") : $,
+        g ? N(c(l)) : R
+      );
+    };
+  }()), B;
 }
-process.env.NODE_ENV === "production" ? s1.exports = y2() : s1.exports = B2();
-var F = s1.exports;
-const t1 = {
+process.env.NODE_ENV === "production" ? _.exports = p1() : _.exports = w1();
+var u = _.exports;
+const F = {
   "3d": '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#29b6f6" d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>',
   abap: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#0288d1" d="M2 10v12h14l14-12"/></svg>',
   abc: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#ff5722" d="M13.295 11.033V7.65l2.126-2.136c.774-.763.919-1.981.377-2.929a2.38 2.38 0 0 0-2.068-1.217c-.203 0-.435.029-.619.087-1.044.28-1.749 1.246-1.749 2.33v3.13L8.327 9.98a5.75 5.75 0 0 0-1.208 6.214 5.62 5.62 0 0 0 4.243 3.432v.59a.5.5 0 0 1-.483.482h-1.45v1.934h1.45a2.43 2.43 0 0 0 2.416-2.417v-.483c1.962 0 4.02-1.856 4.02-4.591 0-2.223-1.855-4.108-4.02-4.108m0-7.249c0-.222.106-.396.31-.454a.47.47 0 0 1 .54.222.48.48 0 0 1-.077.59l-.773.83V3.785m-1.933 7.732c-.938.619-1.643 1.682-1.894 2.668l1.894.503v2.948a3.73 3.73 0 0 1-2.484-2.185 3.8 3.8 0 0 1 .802-4.098l1.682-1.769zm1.933 6.283v-4.89c1.13 0 2.107 1.062 2.107 2.232 0 1.691-1.227 2.658-2.107 2.658"/></svg>',
@@ -1764,151 +1413,151 @@ const t1 = {
   zeabur_light: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#263238" d="m14 20 4 4-4 4H2v-8h8l10-8-6-4 6-4h10v8Z"/><path fill="#651fff" d="M20 4H2v8h18Z"/><path fill="#ff3d00" d="M30 20H14v8h16Z"/></svg>',
   zig: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#f9a825" d="M2 8h6v4H2zm8 0h12v4H10zm0 12h12v4H10zm14 0h2v4h-2zM8 20l-3 4H2V12h4v8zm14-8h-6l-6 8h6z"/><path fill="#f9a825" d="M16 20h-6l-6 8m12-16h6l6-8m2 4v16h-4V12h-2l3-4z"/></svg>',
   zip: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#afb42b" d="M14 17h-2v-2h-2v-2h2v2h2m0-6h-2v2h2v2h-2v-2h-2V9h2V7h-2V5h2v2h2m5-4H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg>'
-}, R2 = Object.keys(t1);
-function L2(s) {
-  return t1[s] || null;
+}, Z1 = Object.keys(F);
+function x1(e) {
+  return F[e] || null;
 }
-function k2(s) {
-  return s in t1;
+function H1(e) {
+  return e in F;
 }
-function c1({
-  name: s,
-  size: l = 24,
-  color: o,
+function T({
+  name: e,
+  size: a = 24,
+  color: h,
   opacity: c = 1,
-  className: f = "",
-  style: d = {},
-  alt: w,
-  light: h = !1,
+  className: v = "",
+  style: i = {},
+  alt: r,
+  light: o = !1,
   onClick: n
 }) {
-  const y = h && k2(`${s}_light`) ? `${s}_light` : s, u = u2(() => {
-    const B = L2(y);
-    if (!B) return null;
-    if (!o) return B;
-    let L = B;
-    return L = L.replace(/fill="[^"]*"/g, `fill="${o}"`), L = L.replace(/<path(?![^>]*fill=)/g, `<path fill="${o}"`), L = L.replace(
+  const x = o && H1(`${e}_light`) ? `${e}_light` : e, b = n1(() => {
+    const H = x1(x);
+    if (!H) return null;
+    if (!h) return H;
+    let w = H;
+    return w = w.replace(/fill="[^"]*"/g, `fill="${h}"`), w = w.replace(/<path(?![^>]*fill=)/g, `<path fill="${h}"`), w = w.replace(
       /<(rect|circle|ellipse|polygon|polyline)(?![^>]*fill=)/g,
-      `<$1 fill="${o}"`
-    ), L;
-  }, [y, o]), H = {
-    width: l,
-    height: l,
+      `<$1 fill="${h}"`
+    ), w;
+  }, [x, h]), d = {
+    width: a,
+    height: a,
     opacity: c,
     display: "inline-block",
     verticalAlign: "middle",
-    ...d
+    ...i
   };
-  return u ? /* @__PURE__ */ F.jsx(
+  return b ? /* @__PURE__ */ u.jsx(
     "div",
     {
-      className: `material-icon ${f}`,
-      style: H,
-      title: w || `${s} icon`,
+      className: `material-icon ${v}`,
+      style: d,
+      title: r || `${e} icon`,
       onClick: n,
-      dangerouslySetInnerHTML: { __html: u }
+      dangerouslySetInnerHTML: { __html: b }
     }
-  ) : /* @__PURE__ */ F.jsx(
+  ) : /* @__PURE__ */ u.jsx(
     "div",
     {
-      className: `material-icon material-icon-error ${f}`,
-      style: H,
-      title: w || `${s} icon (not found)`,
+      className: `material-icon material-icon-error ${v}`,
+      style: d,
+      title: r || `${e} icon (not found)`,
       children: "📄"
     }
   );
 }
-var i = /* @__PURE__ */ ((s) => (s.Angular = "angular", s.Nest = "nest", s.Ngrx = "angular_ngrx", s.React = "react", s.Redux = "react_redux", s.Roblox = "roblox", s.Qwik = "qwik", s.Vue = "vue", s.Vuex = "vue_vuex", s))(i || {}), t = /* @__PURE__ */ ((s) => (s.Ecmascript = "ecmascript", s.Configuration = "configuration", s.NodeEcosystem = "nodeEcosystem", s.Cosmiconfig = "cosmiconfig", s.Yaml = "yaml", s.Dotfile = "dotfile", s))(t || {});
-const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
-  switch (o) {
-    case t.Ecmascript:
+var t = /* @__PURE__ */ ((e) => (e.Angular = "angular", e.Nest = "nest", e.Ngrx = "angular_ngrx", e.React = "react", e.Redux = "react_redux", e.Roblox = "roblox", e.Qwik = "qwik", e.Vue = "vue", e.Vuex = "vue_vuex", e))(t || {}), s = /* @__PURE__ */ ((e) => (e.Ecmascript = "ecmascript", e.Configuration = "configuration", e.NodeEcosystem = "nodeEcosystem", e.Cosmiconfig = "cosmiconfig", e.Yaml = "yaml", e.Dotfile = "dotfile", e))(s || {});
+const M1 = (e) => Object.entries(e).flatMap(([a, h]) => {
+  switch (h) {
+    case s.Ecmascript:
       return [
-        `${l}.js`,
-        `${l}.mjs`,
-        `${l}.cjs`,
-        `${l}.ts`,
-        `${l}.mts`,
-        `${l}.cts`
+        `${a}.js`,
+        `${a}.mjs`,
+        `${a}.cjs`,
+        `${a}.ts`,
+        `${a}.mts`,
+        `${a}.cts`
       ];
-    case t.Configuration:
+    case s.Configuration:
       return [
-        `${l}.json`,
-        `${l}.jsonc`,
-        `${l}.json5`,
-        `${l}.yaml`,
-        `${l}.yml`,
-        `${l}.toml`
+        `${a}.json`,
+        `${a}.jsonc`,
+        `${a}.json5`,
+        `${a}.yaml`,
+        `${a}.yml`,
+        `${a}.toml`
       ];
-    case t.NodeEcosystem:
+    case s.NodeEcosystem:
       return [
-        `${l}.js`,
-        `${l}.mjs`,
-        `${l}.cjs`,
-        `${l}.ts`,
-        `${l}.mts`,
-        `${l}.cts`,
-        `${l}.json`,
-        `${l}.jsonc`,
-        `${l}.json5`,
-        `${l}.yaml`,
-        `${l}.yml`,
-        `${l}.toml`
+        `${a}.js`,
+        `${a}.mjs`,
+        `${a}.cjs`,
+        `${a}.ts`,
+        `${a}.mts`,
+        `${a}.cts`,
+        `${a}.json`,
+        `${a}.jsonc`,
+        `${a}.json5`,
+        `${a}.yaml`,
+        `${a}.yml`,
+        `${a}.toml`
       ];
-    case t.Cosmiconfig:
+    case s.Cosmiconfig:
       return [
-        `.${l}rc`,
-        `.${l}rc.json`,
-        `.${l}rc.jsonc`,
-        `.${l}rc.json5`,
-        `.${l}rc.yaml`,
-        `.${l}rc.yml`,
-        `.${l}rc.toml`,
-        `.${l}rc.js`,
-        `.${l}rc.mjs`,
-        `.${l}rc.cjs`,
-        `.${l}rc.ts`,
-        `.${l}rc.mts`,
-        `.${l}rc.cts`,
-        `.config/${l}rc`,
-        `.config/${l}rc.json`,
-        `.config/${l}rc.jsonc`,
-        `.config/${l}rc.json5`,
-        `.config/${l}rc.yaml`,
-        `.config/${l}rc.yml`,
-        `.config/${l}rc.toml`,
-        `.config/${l}rc.js`,
-        `.config/${l}rc.mjs`,
-        `.config/${l}rc.cjs`,
-        `.config/${l}rc.ts`,
-        `.config/${l}rc.mts`,
-        `.config/${l}rc.cts`,
-        `${l}.config.json`,
-        `${l}.config.jsonc`,
-        `${l}.config.json5`,
-        `${l}.config.yaml`,
-        `${l}.config.yml`,
-        `${l}.config.toml`,
-        `${l}.config.js`,
-        `${l}.config.mjs`,
-        `${l}.config.cjs`,
-        `${l}.config.ts`,
-        `${l}.config.mts`,
-        `${l}.config.cts`
+        `.${a}rc`,
+        `.${a}rc.json`,
+        `.${a}rc.jsonc`,
+        `.${a}rc.json5`,
+        `.${a}rc.yaml`,
+        `.${a}rc.yml`,
+        `.${a}rc.toml`,
+        `.${a}rc.js`,
+        `.${a}rc.mjs`,
+        `.${a}rc.cjs`,
+        `.${a}rc.ts`,
+        `.${a}rc.mts`,
+        `.${a}rc.cts`,
+        `.config/${a}rc`,
+        `.config/${a}rc.json`,
+        `.config/${a}rc.jsonc`,
+        `.config/${a}rc.json5`,
+        `.config/${a}rc.yaml`,
+        `.config/${a}rc.yml`,
+        `.config/${a}rc.toml`,
+        `.config/${a}rc.js`,
+        `.config/${a}rc.mjs`,
+        `.config/${a}rc.cjs`,
+        `.config/${a}rc.ts`,
+        `.config/${a}rc.mts`,
+        `.config/${a}rc.cts`,
+        `${a}.config.json`,
+        `${a}.config.jsonc`,
+        `${a}.config.json5`,
+        `${a}.config.yaml`,
+        `${a}.config.yml`,
+        `${a}.config.toml`,
+        `${a}.config.js`,
+        `${a}.config.mjs`,
+        `${a}.config.cjs`,
+        `${a}.config.ts`,
+        `${a}.config.mts`,
+        `${a}.config.cts`
       ];
-    case t.Yaml:
-      return [`${l}.yaml`, `${l}.yml`];
-    case t.Dotfile:
-      return [`.${l}`, l];
+    case s.Yaml:
+      return [`${a}.yaml`, `${a}.yml`];
+    case s.Dotfile:
+      return [`.${a}`, a];
     default:
-      const c = o;
+      const c = h;
       throw new Error(`Unhandled pattern: ${c}`);
   }
-}), j2 = (s) => s.map(({ patterns: l, fileNames: o = [], ...c }) => ({
+}), b1 = (e) => e.map(({ patterns: a, fileNames: h = [], ...c }) => ({
   ...c,
-  fileNames: l ? [...Z2(l), ...o] : o
-})), S = {
+  fileNames: a ? [...M1(a), ...h] : h
+})), A = {
   defaultIcon: { name: "file" },
-  icons: j2([
+  icons: b1([
     { name: "html", fileExtensions: ["htm", "xhtml", "html_vm", "asp"] },
     {
       name: "pug",
@@ -2157,19 +1806,19 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         "routes.tsx"
       ],
       enabledFor: [
-        i.Angular,
-        i.Ngrx,
-        i.React,
-        i.Redux,
-        i.Vue,
-        i.Vuex
+        t.Angular,
+        t.Ngrx,
+        t.React,
+        t.Redux,
+        t.Vue,
+        t.Vuex
       ]
     },
     {
       name: "redux-action",
       fileExtensions: ["action.js", "actions.js", "action.ts", "actions.ts"],
       fileNames: ["action.js", "actions.js", "action.ts", "actions.ts"],
-      enabledFor: [i.Redux]
+      enabledFor: [t.Redux]
     },
     {
       name: "redux-reducer",
@@ -2180,7 +1829,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         "reducers.ts"
       ],
       fileNames: ["reducer.js", "reducers.js", "reducer.ts", "reducers.ts"],
-      enabledFor: [i.Redux]
+      enabledFor: [t.Redux]
     },
     {
       name: "redux-selector",
@@ -2191,13 +1840,13 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         "selectors.ts"
       ],
       fileNames: ["selector.js", "selectors.js", "selector.ts", "selectors.ts"],
-      enabledFor: [i.Redux]
+      enabledFor: [t.Redux]
     },
     {
       name: "redux-store",
       fileExtensions: ["store.js", "store.ts"],
       fileNames: ["store.js", "store.ts"],
-      enabledFor: [i.Redux]
+      enabledFor: [t.Redux]
     },
     {
       name: "settings",
@@ -2239,7 +1888,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "markdoc-config",
       patterns: {
-        "markdoc.config": t.Ecmascript
+        "markdoc.config": s.Ecmascript
       }
     },
     { name: "markojs", fileExtensions: ["marko"] },
@@ -2728,7 +2377,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     { name: "bbx", fileExtensions: ["bbx"] },
     { name: "cbx", fileExtensions: ["cbx"] },
     { name: "lbx", fileExtensions: ["lbx"] },
-    { name: "latexmk", patterns: { latexmkrc: t.Dotfile } },
+    { name: "latexmk", patterns: { latexmkrc: s.Dotfile } },
     {
       name: "powerpoint",
       fileExtensions: [
@@ -2866,7 +2515,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       fileExtensions: ["graphql", "gql"],
       fileNames: [".graphqlconfig"],
       patterns: {
-        graphql: t.Cosmiconfig
+        graphql: s.Cosmiconfig
       }
     },
     { name: "rust", fileExtensions: ["rs", "ron"] },
@@ -2957,7 +2606,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "vuex-store",
       fileExtensions: ["store.js", "store.ts"],
       fileNames: ["store.js", "store.ts"],
-      enabledFor: [i.Vuex]
+      enabledFor: [t.Vuex]
     },
     {
       name: "nuxt",
@@ -3040,7 +2689,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         "angular.json",
         "ng-package.json"
       ],
-      enabledFor: [i.Angular, i.Ngrx]
+      enabledFor: [t.Angular, t.Ngrx]
     },
     {
       name: "angular-component",
@@ -3049,7 +2698,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "blue-700"
       },
       fileExtensions: ["component.ts", "component.js"],
-      enabledFor: [i.Angular, i.Ngrx]
+      enabledFor: [t.Angular, t.Ngrx]
     },
     {
       name: "angular-guard",
@@ -3058,7 +2707,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "green-600"
       },
       fileExtensions: ["guard.ts", "guard.js"],
-      enabledFor: [i.Angular, i.Ngrx]
+      enabledFor: [t.Angular, t.Ngrx]
     },
     {
       name: "angular-service",
@@ -3067,7 +2716,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "amber-400"
       },
       fileExtensions: ["service.ts", "service.js"],
-      enabledFor: [i.Angular, i.Ngrx]
+      enabledFor: [t.Angular, t.Ngrx]
     },
     {
       name: "angular-pipe",
@@ -3076,7 +2725,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "teal-600"
       },
       fileExtensions: ["pipe.ts", "pipe.js", "filter.js"],
-      enabledFor: [i.Angular, i.Ngrx]
+      enabledFor: [t.Angular, t.Ngrx]
     },
     {
       name: "angular-directive",
@@ -3085,7 +2734,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "purple-400"
       },
       fileExtensions: ["directive.ts", "directive.js"],
-      enabledFor: [i.Angular, i.Ngrx]
+      enabledFor: [t.Angular, t.Ngrx]
     },
     {
       name: "angular-resolver",
@@ -3094,7 +2743,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "green-600"
       },
       fileExtensions: ["resolver.ts", "resolver.js"],
-      enabledFor: [i.Angular, i.Ngrx]
+      enabledFor: [t.Angular, t.Ngrx]
     },
     {
       name: "angular-interceptor",
@@ -3103,7 +2752,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "orange-500"
       },
       fileExtensions: ["interceptor.ts", "interceptor.js"],
-      enabledFor: [i.Angular, i.Ngrx]
+      enabledFor: [t.Angular, t.Ngrx]
     },
     { name: "puppet", fileExtensions: ["pp"] },
     { name: "elixir", fileExtensions: ["ex", "exs", "eex", "leex", "heex"] },
@@ -3204,13 +2853,13 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "postcss",
       fileExtensions: ["pcss", "sss"],
       patterns: {
-        postcss: t.Cosmiconfig
+        postcss: s.Cosmiconfig
       }
     },
     {
       name: "posthtml",
       patterns: {
-        posthtml: t.Cosmiconfig
+        posthtml: s.Cosmiconfig
       }
     },
     {
@@ -3243,41 +2892,41 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "webpack",
       fileNames: ["webpack.config.coffee"],
       patterns: {
-        "webpack.base": t.Ecmascript,
-        "webpack.client": t.Ecmascript,
-        "webpack.common": t.Ecmascript,
-        "webpack.config.babel": t.Ecmascript,
-        "webpack.config.base.babel": t.Ecmascript,
-        "webpack.config.base": t.Ecmascript,
-        "webpack.config.client": t.Ecmascript,
-        "webpack.config.common.babel": t.Ecmascript,
-        "webpack.config.common": t.Ecmascript,
-        "webpack.config.dev.babel": t.Ecmascript,
-        "webpack.config.dev": t.Ecmascript,
-        "webpack.config.main": t.Ecmascript,
-        "webpack.config.prod.babel": t.Ecmascript,
-        "webpack.config.prod": t.Ecmascript,
-        "webpack.config.production.babel": t.Ecmascript,
-        "webpack.config.production": t.Ecmascript,
-        "webpack.config.renderer": t.Ecmascript,
-        "webpack.config.server": t.Ecmascript,
-        "webpack.config.staging.babel": t.Ecmascript,
-        "webpack.config.staging": t.Ecmascript,
-        "webpack.config.test": t.Ecmascript,
-        "webpack.config.vendor.production": t.Ecmascript,
-        "webpack.config.vendor": t.Ecmascript,
-        "webpack.config": t.Ecmascript,
-        "webpack.dev": t.Ecmascript,
-        "webpack.development": t.Ecmascript,
-        "webpack.dist": t.Ecmascript,
-        "webpack.mix": t.Ecmascript,
-        "webpack.prod.config": t.Ecmascript,
-        "webpack.prod": t.Ecmascript,
-        "webpack.production": t.Ecmascript,
-        "webpack.server": t.Ecmascript,
-        "webpack.test": t.Ecmascript,
-        webpack: t.Ecmascript,
-        webpackfile: t.Ecmascript
+        "webpack.base": s.Ecmascript,
+        "webpack.client": s.Ecmascript,
+        "webpack.common": s.Ecmascript,
+        "webpack.config.babel": s.Ecmascript,
+        "webpack.config.base.babel": s.Ecmascript,
+        "webpack.config.base": s.Ecmascript,
+        "webpack.config.client": s.Ecmascript,
+        "webpack.config.common.babel": s.Ecmascript,
+        "webpack.config.common": s.Ecmascript,
+        "webpack.config.dev.babel": s.Ecmascript,
+        "webpack.config.dev": s.Ecmascript,
+        "webpack.config.main": s.Ecmascript,
+        "webpack.config.prod.babel": s.Ecmascript,
+        "webpack.config.prod": s.Ecmascript,
+        "webpack.config.production.babel": s.Ecmascript,
+        "webpack.config.production": s.Ecmascript,
+        "webpack.config.renderer": s.Ecmascript,
+        "webpack.config.server": s.Ecmascript,
+        "webpack.config.staging.babel": s.Ecmascript,
+        "webpack.config.staging": s.Ecmascript,
+        "webpack.config.test": s.Ecmascript,
+        "webpack.config.vendor.production": s.Ecmascript,
+        "webpack.config.vendor": s.Ecmascript,
+        "webpack.config": s.Ecmascript,
+        "webpack.dev": s.Ecmascript,
+        "webpack.development": s.Ecmascript,
+        "webpack.dist": s.Ecmascript,
+        "webpack.mix": s.Ecmascript,
+        "webpack.prod.config": s.Ecmascript,
+        "webpack.prod": s.Ecmascript,
+        "webpack.production": s.Ecmascript,
+        "webpack.server": s.Ecmascript,
+        "webpack.test": s.Ecmascript,
+        webpack: s.Ecmascript,
+        webpackfile: s.Ecmascript
       }
     },
     { name: "ionic", fileNames: ["ionic.config.json", ".io-config.json"] },
@@ -3367,8 +3016,8 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "babel",
       fileNames: ["babel-transform.js"],
       patterns: {
-        babel: t.Cosmiconfig,
-        "babel-plugin-macros": t.Cosmiconfig
+        babel: s.Cosmiconfig,
+        "babel-plugin-macros": s.Cosmiconfig
       }
     },
     {
@@ -3498,7 +3147,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         ".eslintcache"
       ],
       patterns: {
-        eslint: t.Cosmiconfig
+        eslint: s.Cosmiconfig
       }
     },
     {
@@ -3589,7 +3238,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       light: !0,
       fileNames: [".stylelintignore", ".stylelintcache"],
       patterns: {
-        stylelint: t.Cosmiconfig
+        stylelint: s.Cosmiconfig
       }
     },
     { name: "code-climate", fileNames: [".codeclimate.yml"], light: !0 },
@@ -3597,7 +3246,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "prettier",
       fileNames: [".prettierignore"],
       patterns: {
-        prettier: t.Cosmiconfig
+        prettier: s.Cosmiconfig
       }
     },
     {
@@ -3615,32 +3264,32 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "ngrx-reducer",
       fileExtensions: ["reducer.ts", "rootReducer.ts"],
-      enabledFor: [i.Ngrx]
+      enabledFor: [t.Ngrx]
     },
     {
       name: "ngrx-state",
       fileExtensions: ["state.ts"],
-      enabledFor: [i.Ngrx]
+      enabledFor: [t.Ngrx]
     },
     {
       name: "ngrx-actions",
       fileExtensions: ["actions.ts"],
-      enabledFor: [i.Ngrx]
+      enabledFor: [t.Ngrx]
     },
     {
       name: "ngrx-effects",
       fileExtensions: ["effects.ts"],
-      enabledFor: [i.Ngrx]
+      enabledFor: [t.Ngrx]
     },
     {
       name: "ngrx-entity",
       fileNames: [".entity"],
-      enabledFor: [i.Ngrx]
+      enabledFor: [t.Ngrx]
     },
     {
       name: "ngrx-selectors",
       fileExtensions: ["selectors.ts"],
-      enabledFor: [i.Ngrx]
+      enabledFor: [t.Ngrx]
     },
     { name: "webhint", fileNames: [".hintrc"] },
     {
@@ -3784,7 +3433,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "semantic-release",
       light: !0,
       patterns: {
-        release: t.Cosmiconfig
+        release: s.Cosmiconfig
       }
     },
     {
@@ -3927,7 +3576,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "svelte",
       fileExtensions: ["svelte"],
       patterns: {
-        "svelte.config": t.Ecmascript
+        "svelte.config": s.Ecmascript
       }
     },
     {
@@ -3966,7 +3615,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "light-blue-700"
       },
       fileExtensions: ["controller.ts", "controller.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     {
       name: "nest-middleware",
@@ -3975,7 +3624,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "indigo-400"
       },
       fileExtensions: ["middleware.ts", "middleware.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     {
       name: "nest-module",
@@ -3984,7 +3633,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "red-600"
       },
       fileExtensions: ["module.ts", "module.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     {
       name: "nest-service",
@@ -3993,7 +3642,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "amber-400"
       },
       fileExtensions: ["service.ts", "service.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     {
       name: "nest-decorator",
@@ -4002,7 +3651,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "purple-400"
       },
       fileExtensions: ["decorator.ts", "decorator.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     {
       name: "nest-pipe",
@@ -4011,7 +3660,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "teal-600"
       },
       fileExtensions: ["pipe.ts", "pipe.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     {
       name: "nest-filter",
@@ -4020,7 +3669,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "deep-orange-400"
       },
       fileExtensions: ["filter.ts", "filter.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     {
       name: "nest-gateway",
@@ -4029,7 +3678,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "lime-700"
       },
       fileExtensions: ["gateway.ts", "gateway.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     {
       name: "nest-guard",
@@ -4038,7 +3687,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "green-600"
       },
       fileExtensions: ["guard.ts", "guard.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     {
       name: "nest-resolver",
@@ -4047,7 +3696,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "pink-400"
       },
       fileExtensions: ["resolver.ts", "resolver.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     {
       name: "nest-interceptor",
@@ -4056,7 +3705,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
         color: "orange-500"
       },
       fileExtensions: ["interceptor.ts", "interceptor.js"],
-      enabledFor: [i.Nest]
+      enabledFor: [t.Nest]
     },
     { name: "moon", fileNames: ["moon.yml"] },
     { name: "moonscript", fileExtensions: ["moon"] },
@@ -4105,7 +3754,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "husky",
       patterns: {
-        husky: t.Cosmiconfig
+        husky: s.Cosmiconfig
       }
     },
     { name: "coconut", fileExtensions: ["coco"] },
@@ -4146,7 +3795,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "commitlint",
       fileNames: [".commitlint.yaml", ".commitlint.yml"],
       patterns: {
-        commitlint: t.Cosmiconfig
+        commitlint: s.Cosmiconfig
       }
     },
     { name: "buck", fileNames: [".buckconfig"] },
@@ -4302,20 +3951,20 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "vite",
       patterns: {
-        "vite.config": t.Ecmascript
+        "vite.config": s.Ecmascript
       }
     },
     {
       name: "vitest",
       patterns: {
-        "vitest.workspace": t.Ecmascript,
-        "vitest.config": t.Ecmascript
+        "vitest.workspace": s.Ecmascript,
+        "vitest.config": s.Ecmascript
       }
     },
     {
       name: "velite",
       patterns: {
-        "velite.config": t.Ecmascript
+        "velite.config": s.Ecmascript
       }
     },
     { name: "opa", fileExtensions: ["rego"] },
@@ -4352,15 +4001,15 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "sentry",
       fileNames: [".sentryclirc", ".env.sentry-build-plugin"],
       patterns: {
-        "sentry.client.config": t.Ecmascript,
-        "sentry.server.config": t.Ecmascript,
-        "sentry.edge.config": t.Ecmascript
+        "sentry.client.config": s.Ecmascript,
+        "sentry.server.config": s.Ecmascript,
+        "sentry.edge.config": s.Ecmascript
       }
     },
     {
       name: "contentlayer",
       patterns: {
-        "contentlayer.config": t.Ecmascript
+        "contentlayer.config": s.Ecmascript
       }
     },
     {
@@ -4538,7 +4187,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "svgr",
       patterns: {
-        svgr: t.Cosmiconfig
+        svgr: s.Cosmiconfig
       }
     },
     { name: "rome", fileNames: ["rome.json"] },
@@ -4546,7 +4195,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "cypress",
       fileNames: ["cypress.json", "cypress.env.json"],
       patterns: {
-        "cypress.config": t.Ecmascript
+        "cypress.config": s.Ecmascript
       }
     },
     { name: "siyuan", fileExtensions: ["sy"] },
@@ -4646,7 +4295,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "craco",
       patterns: {
-        craco: t.Cosmiconfig
+        craco: s.Cosmiconfig
       }
     },
     {
@@ -4697,12 +4346,12 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     },
     { name: "ifanr-cloud", fileNames: [".mincloudrc", ".qa-mincloudrc"] },
     { name: "concourse", fileNames: ["concourse.yml"] },
-    { name: "qwik", fileExtensions: ["tsx"], enabledFor: [i.Qwik] },
+    { name: "qwik", fileExtensions: ["tsx"], enabledFor: [t.Qwik] },
     { name: "mermaid", fileExtensions: ["mmd", "mermaid"] },
     {
       name: "syncpack",
       patterns: {
-        syncpack: t.Cosmiconfig
+        syncpack: s.Cosmiconfig
       }
     },
     {
@@ -4727,7 +4376,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "rojo",
       fileExtensions: ["project.json", "model.json", "meta.json"],
-      enabledFor: [i.Roblox]
+      enabledFor: [t.Roblox]
     },
     { name: "wally", fileNames: ["wally.toml"] },
     {
@@ -4737,15 +4386,15 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "panda",
       patterns: {
-        "panda.config": t.Ecmascript
+        "panda.config": s.Ecmascript
       }
     },
     { name: "biome", fileNames: ["biome.json", "biome.jsonc"] },
     {
       name: "esbuild",
       patterns: {
-        esbuild: t.Ecmascript,
-        "esbuild.config": t.Ecmascript
+        esbuild: s.Ecmascript,
+        "esbuild.config": s.Ecmascript
       }
     },
     { name: "spwn", fileExtensions: ["spwn"] },
@@ -4774,7 +4423,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "puppeteer",
       patterns: {
-        puppeteer: t.Cosmiconfig
+        puppeteer: s.Cosmiconfig
       }
     },
     { name: "apps-script", fileExtensions: ["gs"] },
@@ -4878,7 +4527,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "trigger",
       patterns: {
-        "trigger.config": t.Ecmascript
+        "trigger.config": s.Ecmascript
       }
     },
     {
@@ -4918,14 +4567,14 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "taze",
       patterns: {
-        "taze.config": t.Ecmascript
+        "taze.config": s.Ecmascript
       },
       fileNames: [".tazerc", ".tazerc.json"]
     },
     {
       name: "wxt",
       patterns: {
-        "wxt.config": t.Ecmascript
+        "wxt.config": s.Ecmascript
       }
     },
     {
@@ -4963,7 +4612,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       name: "zeabur",
       fileExtensions: ["zeabur"],
       patterns: {
-        zeabur: t.Configuration
+        zeabur: s.Configuration
       },
       light: !0
     },
@@ -4993,14 +4642,14 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       fileExtensions: ["controller.js", "controller.ts"],
       enabledFor: [
         // Not for Nest
-        i.Angular,
-        i.Ngrx,
-        i.Qwik,
-        i.React,
-        i.Redux,
-        i.Roblox,
-        i.Vue,
-        i.Vuex
+        t.Angular,
+        t.Ngrx,
+        t.Qwik,
+        t.React,
+        t.Redux,
+        t.Roblox,
+        t.Vue,
+        t.Vuex
       ]
     },
     {
@@ -5025,8 +4674,8 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "histoire",
       patterns: {
-        "histoire.config": t.Ecmascript,
-        ".histoire": t.Ecmascript
+        "histoire.config": s.Ecmascript,
+        ".histoire": s.Ecmascript
       }
     },
     {
@@ -5044,13 +4693,13 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "umi",
       patterns: {
-        ".umirc": t.Ecmascript
+        ".umirc": s.Ecmascript
       }
     },
     {
       name: "pm2-ecosystem",
       patterns: {
-        "ecosystem.config": t.Ecmascript
+        "ecosystem.config": s.Ecmascript
       }
     },
     { name: "hosts", fileNames: ["hosts"], light: !0 },
@@ -5106,8 +4755,8 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     {
       name: "hadolint",
       patterns: {
-        ".hadolint": t.Yaml,
-        hadolint: t.Yaml
+        ".hadolint": s.Yaml,
+        hadolint: s.Yaml
       }
     },
     {
@@ -5137,7 +4786,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       fileNames: ["CLAUDE.md", "CLAUDE.local.md"]
     }
   ])
-}, I = [
+}, L = [
   {
     name: "specific",
     defaultIcon: { name: "folder" },
@@ -5430,12 +5079,12 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-ngrx-store",
         folderNames: ["store"],
-        enabledFor: [i.Ngrx]
+        enabledFor: [t.Ngrx]
       },
       {
         name: "folder-ngrx-effects",
         folderNames: ["effects"],
-        enabledFor: [i.Ngrx],
+        enabledFor: [t.Ngrx],
         clone: {
           base: "folder-ngrx-store",
           color: "cyan-500"
@@ -5444,7 +5093,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-ngrx-state",
         folderNames: ["states", "state"],
-        enabledFor: [i.Ngrx],
+        enabledFor: [t.Ngrx],
         clone: {
           base: "folder-ngrx-store",
           color: "lime-800"
@@ -5453,7 +5102,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-ngrx-reducer",
         folderNames: ["reducers", "reducer"],
-        enabledFor: [i.Ngrx],
+        enabledFor: [t.Ngrx],
         clone: {
           base: "folder-ngrx-store",
           color: "red-400"
@@ -5462,7 +5111,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-ngrx-actions",
         folderNames: ["actions"],
-        enabledFor: [i.Ngrx],
+        enabledFor: [t.Ngrx],
         clone: {
           base: "folder-ngrx-store",
           color: "purple-400"
@@ -5471,7 +5120,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-ngrx-entities",
         folderNames: ["entities"],
-        enabledFor: [i.Ngrx],
+        enabledFor: [t.Ngrx],
         clone: {
           base: "folder-ngrx-store",
           color: "yellow-700"
@@ -5480,7 +5129,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-ngrx-selectors",
         folderNames: ["selectors"],
-        enabledFor: [i.Ngrx],
+        enabledFor: [t.Ngrx],
         clone: {
           base: "folder-ngrx-store",
           color: "deep-orange-A200"
@@ -5489,12 +5138,12 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-redux-reducer",
         folderNames: ["reducers", "reducer"],
-        enabledFor: [i.Redux]
+        enabledFor: [t.Redux]
       },
       {
         name: "folder-redux-actions",
         folderNames: ["actions"],
-        enabledFor: [i.Redux],
+        enabledFor: [t.Redux],
         clone: {
           base: "folder-redux-reducer",
           color: "purple-400"
@@ -5503,7 +5152,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-redux-selector",
         folderNames: ["selectors", "selector"],
-        enabledFor: [i.Redux],
+        enabledFor: [t.Redux],
         clone: {
           base: "folder-redux-reducer",
           color: "deep-orange-A200"
@@ -5512,7 +5161,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-redux-store",
         folderNames: ["store", "stores"],
-        enabledFor: [i.Redux],
+        enabledFor: [t.Redux],
         clone: {
           base: "folder-redux-reducer",
           color: "light-green-500"
@@ -5527,7 +5176,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
           "reactjs",
           "react-components"
         ],
-        enabledFor: [i.React, i.Redux]
+        enabledFor: [t.React, t.Redux]
       },
       {
         name: "folder-astro",
@@ -6114,7 +5763,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-vuex-store",
         folderNames: ["store", "stores"],
-        enabledFor: [i.Vuex]
+        enabledFor: [t.Vuex]
       },
       {
         name: "folder-nuxt",
@@ -6123,12 +5772,12 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-vue-directives",
         folderNames: ["directives"],
-        enabledFor: [i.Vuex, i.Vue]
+        enabledFor: [t.Vuex, t.Vue]
       },
       {
         name: "folder-vue",
         folderNames: ["components"],
-        enabledFor: [i.Vuex, i.Vue]
+        enabledFor: [t.Vuex, t.Vue]
       },
       { name: "folder-terraform", folderNames: ["terraform"] },
       {
@@ -6325,7 +5974,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
       {
         name: "folder-store",
         folderNames: ["store", "stores"],
-        enabledFor: [i.Angular]
+        enabledFor: [t.Angular]
       },
       { name: "folder-bicep", folderNames: ["bicep"] },
       { name: "folder-snapcraft", folderNames: ["snap", "snapcraft"] },
@@ -6417,7 +6066,7 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
     rootFolder: { name: "folder-root" }
   },
   { name: "none", defaultIcon: { name: "" } }
-], Y = [
+], k = [
   { name: "git", ids: ["git", "git-commit", "git-rebase", "ignore"] },
   {
     name: "github-actions-workflow",
@@ -6618,137 +6267,137 @@ const Z2 = (s) => Object.entries(s).flatMap(([l, o]) => {
   { name: "gnuplot", ids: ["gnuplot"] },
   { name: "helm", ids: ["helm"] }
 ];
-function _1(s) {
-  const { fileName: l, fileExtension: o, languageId: c, fallback: f = "file", iconPack: d = "angular" } = s;
+function Y(e) {
+  const { fileName: a, fileExtension: h, languageId: c, fallback: v = "file", iconPack: i = "angular" } = e;
   if (c) {
-    const w = F1(c, d);
-    if (w)
-      return w.name;
+    const r = W(c, i);
+    if (r)
+      return r.name;
   }
-  if (l) {
-    const w = N2(l, d);
-    if (w)
-      return w.name;
+  if (a) {
+    const r = u1(a, i);
+    if (r)
+      return r.name;
   }
-  if (o) {
-    const w = q2(o, d);
-    if (w)
-      return w.name;
+  if (h) {
+    const r = A1(h, i);
+    if (r)
+      return r.name;
   }
-  return f;
+  return v;
 }
-function E2(s) {
-  const { folderName: l, isRoot: o = !1, isOpen: c = !1, theme: f = "specific", fallback: d } = s;
-  if (f === "none")
-    return d || "folder";
-  if (f === "classic")
+function z1(e) {
+  const { folderName: a, isRoot: h = !1, isOpen: c = !1, theme: v = "specific", fallback: i } = e;
+  if (v === "none")
+    return i || "folder";
+  if (v === "classic")
     return c ? "folder-open" : "folder";
-  if (l) {
-    const w = C2(l, o);
-    if (w) {
-      const h = w.name;
-      return c ? `${h}-open` : h;
+  if (a) {
+    const r = V1(a, h);
+    if (r) {
+      const o = r.name;
+      return c ? `${o}-open` : o;
     }
   }
-  return o ? c ? "folder-root-open" : "folder-root" : c ? "folder-open" : "folder";
+  return h ? c ? "folder-root-open" : "folder-root" : c ? "folder-open" : "folder";
 }
-function G2(s) {
-  const { languageId: l, iconPack: o = "angular", fallback: c = "file" } = s;
-  if (!l)
+function j1(e) {
+  const { languageId: a, iconPack: h = "angular", fallback: c = "file" } = e;
+  if (!a)
     return c;
-  const f = F1(l, o);
-  return f ? f.name : c;
+  const v = W(a, h);
+  return v ? v.name : c;
 }
-function N2(s, l) {
-  return S.icons.find((o) => {
+function u1(e, a) {
+  return A.icons.find((h) => {
     var c;
-    return o.disabled || o.enabledFor && !o.enabledFor.some((f) => f.toString() === l) ? !1 : (c = o.fileNames) == null ? void 0 : c.some((f) => f === s);
+    return h.disabled || h.enabledFor && !h.enabledFor.some((v) => v.toString() === a) ? !1 : (c = h.fileNames) == null ? void 0 : c.some((v) => v === e);
   });
 }
-function q2(s, l) {
-  const o = s.startsWith(".") ? s.slice(1) : s;
-  return S.icons.find((c) => {
-    var f;
-    return c.disabled || c.enabledFor && !c.enabledFor.some((d) => d.toString() === l) ? !1 : (f = c.fileExtensions) == null ? void 0 : f.some((d) => d === o);
+function A1(e, a) {
+  const h = e.startsWith(".") ? e.slice(1) : e;
+  return A.icons.find((c) => {
+    var v;
+    return c.disabled || c.enabledFor && !c.enabledFor.some((i) => i.toString() === a) ? !1 : (v = c.fileExtensions) == null ? void 0 : v.some((i) => i === h);
   });
 }
-function F1(s, l) {
-  return Y.find((o) => o.disabled || o.enabledFor && !o.enabledFor.some((c) => c.toString() === l) ? !1 : o.ids.includes(s));
+function W(e, a) {
+  return k.find((h) => h.disabled || h.enabledFor && !h.enabledFor.some((c) => c.toString() === a) ? !1 : h.ids.includes(e));
 }
-function C2(s, l) {
-  const o = I.find((c) => c.name === "specific");
-  if (!(!o || !o.icons))
-    return o.icons.find((c) => {
-      var f;
-      return c.disabled ? !1 : l && c.rootFolderNames ? c.rootFolderNames.includes(s) : (f = c.folderNames) == null ? void 0 : f.includes(s);
+function V1(e, a) {
+  const h = L.find((c) => c.name === "specific");
+  if (!(!h || !h.icons))
+    return h.icons.find((c) => {
+      var v;
+      return c.disabled ? !1 : a && c.rootFolderNames ? c.rootFolderNames.includes(e) : (v = c.folderNames) == null ? void 0 : v.includes(e);
     });
 }
-function O2() {
-  const s = /* @__PURE__ */ new Set();
-  return S.icons.forEach((l) => {
-    !l.disabled && l.fileExtensions && l.fileExtensions.forEach((o) => s.add(o));
-  }), Array.from(s).sort();
+function E1() {
+  const e = /* @__PURE__ */ new Set();
+  return A.icons.forEach((a) => {
+    !a.disabled && a.fileExtensions && a.fileExtensions.forEach((h) => e.add(h));
+  }), Array.from(e).sort();
 }
-function U2() {
-  const s = /* @__PURE__ */ new Set();
-  return S.icons.forEach((l) => {
-    !l.disabled && l.fileNames && l.fileNames.forEach((o) => s.add(o));
-  }), Array.from(s).sort();
+function N1() {
+  const e = /* @__PURE__ */ new Set();
+  return A.icons.forEach((a) => {
+    !a.disabled && a.fileNames && a.fileNames.forEach((h) => e.add(h));
+  }), Array.from(e).sort();
 }
-function $2() {
-  var o;
-  const s = /* @__PURE__ */ new Set(), l = I.find((c) => c.name === "specific");
-  return l && ((o = l.icons) == null || o.forEach((c) => {
-    var f;
-    c.disabled || ((f = c.folderNames) == null || f.forEach((d) => s.add(d)), c.rootFolderNames && c.rootFolderNames.forEach((d) => s.add(d)));
-  })), Array.from(s).sort();
+function q1() {
+  var h;
+  const e = /* @__PURE__ */ new Set(), a = L.find((c) => c.name === "specific");
+  return a && ((h = a.icons) == null || h.forEach((c) => {
+    var v;
+    c.disabled || ((v = c.folderNames) == null || v.forEach((i) => e.add(i)), c.rootFolderNames && c.rootFolderNames.forEach((i) => e.add(i)));
+  })), Array.from(e).sort();
 }
-function P2() {
-  const s = /* @__PURE__ */ new Set();
-  return Y.forEach((l) => {
-    l.disabled || l.ids.forEach((o) => s.add(o));
-  }), Array.from(s).sort();
+function C1() {
+  const e = /* @__PURE__ */ new Set();
+  return k.forEach((a) => {
+    a.disabled || a.ids.forEach((h) => e.add(h));
+  }), Array.from(e).sort();
 }
-function _2(s = "angular") {
-  const l = [], o = [];
-  S.icons.forEach((h) => {
-    if (h.disabled || h.enabledFor && !h.enabledFor.some((y) => y.toString() === s))
+function B1(e = "angular") {
+  const a = [], h = [];
+  A.icons.forEach((o) => {
+    if (o.disabled || o.enabledFor && !o.enabledFor.some((x) => x.toString() === e))
       return;
     const n = [];
-    h.fileExtensions && n.push(...h.fileExtensions), h.fileNames && n.push(...h.fileNames), o.push({
-      name: h.name,
-      iconName: h.name,
-      description: `File icon for ${h.name}`,
+    o.fileExtensions && n.push(...o.fileExtensions), o.fileNames && n.push(...o.fileNames), h.push({
+      name: o.name,
+      iconName: o.name,
+      description: `File icon for ${o.name}`,
       category: "files",
       tags: n
     });
-  }), l.push({
+  }), a.push({
     name: "files",
     description: "File Icons",
-    icons: o.sort((h, n) => h.name.localeCompare(n.name))
+    icons: h.sort((o, n) => o.name.localeCompare(n.name))
   });
   const c = [];
-  Y.forEach((h) => {
-    h.disabled || h.enabledFor && !h.enabledFor.some((n) => n.toString() === s) || c.push({
-      name: h.name,
-      iconName: h.name,
-      description: `Language icon for ${h.ids.join(", ")}`,
+  k.forEach((o) => {
+    o.disabled || o.enabledFor && !o.enabledFor.some((n) => n.toString() === e) || c.push({
+      name: o.name,
+      iconName: o.name,
+      description: `Language icon for ${o.ids.join(", ")}`,
       category: "languages",
-      tags: h.ids
+      tags: o.ids
     });
-  }), l.push({
+  }), a.push({
     name: "languages",
     description: "Language Icons",
-    icons: c.sort((h, n) => h.name.localeCompare(n.name))
+    icons: c.sort((o, n) => o.name.localeCompare(n.name))
   });
-  const f = [], d = I.find((h) => h.name === "specific");
-  return d && d.icons && d.icons.forEach((h) => {
-    if (h.disabled)
+  const v = [], i = L.find((o) => o.name === "specific");
+  return i && i.icons && i.icons.forEach((o) => {
+    if (o.disabled)
       return;
     const n = [];
-    h.folderNames && n.push(...h.folderNames), h.rootFolderNames && n.push(...h.rootFolderNames), f.push({
-      name: h.name,
-      iconName: h.name,
+    o.folderNames && n.push(...o.folderNames), o.rootFolderNames && n.push(...o.rootFolderNames), v.push({
+      name: o.name,
+      iconName: o.name,
       description: `Folder icon for ${n.join(", ")}`,
       category: "folders",
       tags: n
@@ -6758,168 +6407,168 @@ function _2(s = "angular") {
     { name: "folder-open", description: "Open folder" },
     { name: "folder-root", description: "Root folder" },
     { name: "folder-root-open", description: "Open root folder" }
-  ].forEach((h) => {
-    f.push({
-      name: h.name,
-      iconName: h.name,
-      description: h.description,
+  ].forEach((o) => {
+    v.push({
+      name: o.name,
+      iconName: o.name,
+      description: o.description,
       category: "folders",
       tags: ["folder"]
     });
-  }), l.push({
+  }), a.push({
     name: "folders",
     description: "Folder Icons",
-    icons: f.sort((h, n) => h.name.localeCompare(n.name))
-  }), l;
+    icons: v.sort((o, n) => o.name.localeCompare(n.name))
+  }), a;
 }
-function D2(s = "angular") {
-  return S.icons.filter((l) => !l.disabled && (!l.enabledFor || l.enabledFor.some((o) => o.toString() === s)));
+function _1(e = "angular") {
+  return A.icons.filter((a) => !a.disabled && (!a.enabledFor || a.enabledFor.some((h) => h.toString() === e)));
 }
-function I2() {
-  const s = I.find((l) => l.name === "specific");
-  return !s || !s.icons ? [] : s.icons.filter((l) => !l.disabled);
+function F1() {
+  const e = L.find((a) => a.name === "specific");
+  return !e || !e.icons ? [] : e.icons.filter((a) => !a.disabled);
 }
-function Y2(s = "angular") {
-  return Y.filter((l) => !l.disabled && (!l.enabledFor || l.enabledFor.some((o) => o.toString() === s)));
+function T1(e = "angular") {
+  return k.filter((a) => !a.disabled && (!a.enabledFor || a.enabledFor.some((h) => h.toString() === e)));
 }
-function F2(s = "angular") {
-  return _2(s).flatMap((o) => o.icons);
+function y1(e = "angular") {
+  return B1(e).flatMap((h) => h.icons);
 }
-function Q2(s, l = "angular") {
-  const o = F2(l), c = s.toLowerCase();
-  return o.filter(
-    (f) => f.name.toLowerCase().includes(c) || f.tags.some((d) => d.toLowerCase().includes(c)) || f.description && f.description.toLowerCase().includes(c)
+function S1(e, a = "angular") {
+  const h = y1(a), c = e.toLowerCase();
+  return h.filter(
+    (v) => v.name.toLowerCase().includes(c) || v.tags.some((i) => i.toLowerCase().includes(c)) || v.description && v.description.toLowerCase().includes(c)
   );
 }
-function W2({
-  fileName: s,
-  fileExtension: l,
-  languageId: o,
+function G1({
+  fileName: e,
+  fileExtension: a,
+  languageId: h,
   fallback: c = "file",
-  iconPack: f = "angular",
-  ...d
+  iconPack: v = "angular",
+  ...i
 }) {
-  const w = _1({
-    fileName: s,
-    fileExtension: l,
-    languageId: o,
+  const r = Y({
+    fileName: e,
+    fileExtension: a,
+    languageId: h,
     fallback: c,
-    iconPack: f
+    iconPack: v
   });
-  return /* @__PURE__ */ F.jsx(c1, { name: w, ...d });
+  return /* @__PURE__ */ u.jsx(T, { name: r, ...i });
 }
-function J2({
-  folderName: s,
-  isRoot: l = !1,
-  isOpen: o = !1,
+function U1({
+  folderName: e,
+  isRoot: a = !1,
+  isOpen: h = !1,
   theme: c = "specific",
-  fallback: f,
-  ...d
+  fallback: v,
+  ...i
 }) {
-  const w = E2({
-    folderName: s,
-    isRoot: l,
-    isOpen: o,
+  const r = z1({
+    folderName: e,
+    isRoot: a,
+    isOpen: h,
     theme: c,
-    fallback: f
+    fallback: v
   });
-  return /* @__PURE__ */ F.jsx(c1, { name: w, ...d });
+  return /* @__PURE__ */ u.jsx(T, { name: r, ...i });
 }
-function K2({
-  fileName: s,
-  fileExtension: l,
-  languageId: o,
+function O1({
+  fileName: e,
+  fileExtension: a,
+  languageId: h,
   fallback: c = "file",
-  iconPack: f = "angular",
-  ...d
+  iconPack: v = "angular",
+  ...i
 }) {
-  const w = _1({
-    fileName: s,
-    fileExtension: l,
-    languageId: o,
+  const r = Y({
+    fileName: e,
+    fileExtension: a,
+    languageId: h,
     fallback: c,
-    iconPack: f
+    iconPack: v
   });
-  return /* @__PURE__ */ F.jsx(c1, { name: w, ...d });
+  return /* @__PURE__ */ u.jsx(T, { name: r, ...i });
 }
-const q1 = {
+const Q = {
   iconPack: "angular",
   lightTheme: !1,
   folderTheme: "specific",
   opacity: 1,
   saturation: 1
 };
-function S2(s) {
-  const [l, o] = z2({
-    ...q1,
-    ...s
-  }), c = j((H) => {
-    o((B) => ({ ...B, ...H }));
-  }, []), f = j((H) => {
-    c({ iconPack: H });
-  }, [c]), d = j((H) => {
-    c({ lightTheme: H });
-  }, [c]), w = j((H) => {
-    c({ folderTheme: H });
-  }, [c]), h = j((H) => {
-    c({ opacity: Math.max(0, Math.min(1, H)) });
-  }, [c]), n = j((H) => {
-    c({ saturation: Math.max(0, Math.min(1, H)) });
-  }, [c]), y = j((H) => {
-    c({ color: H });
-  }, [c]), u = j(() => {
-    o(q1);
+function L1(e) {
+  const [a, h] = m1({
+    ...Q,
+    ...e
+  }), c = M((d) => {
+    h((H) => ({ ...H, ...d }));
+  }, []), v = M((d) => {
+    c({ iconPack: d });
+  }, [c]), i = M((d) => {
+    c({ lightTheme: d });
+  }, [c]), r = M((d) => {
+    c({ folderTheme: d });
+  }, [c]), o = M((d) => {
+    c({ opacity: Math.max(0, Math.min(1, d)) });
+  }, [c]), n = M((d) => {
+    c({ saturation: Math.max(0, Math.min(1, d)) });
+  }, [c]), x = M((d) => {
+    c({ color: d });
+  }, [c]), b = M(() => {
+    h(Q);
   }, []);
   return {
-    config: l,
+    config: a,
     updateConfig: c,
-    setIconPack: f,
-    setLightTheme: d,
-    setFolderTheme: w,
-    setOpacity: h,
+    setIconPack: v,
+    setLightTheme: i,
+    setFolderTheme: r,
+    setOpacity: o,
     setSaturation: n,
-    setColor: y,
-    resetConfig: u
+    setColor: x,
+    resetConfig: b
   };
 }
-const S1 = A2(void 0);
-function X2({ children: s, initialConfig: l }) {
-  const o = S2(l);
-  return /* @__PURE__ */ F.jsx(S1.Provider, { value: o, children: s });
+const X = d1(void 0);
+function $1({ children: e, initialConfig: a }) {
+  const h = L1(a);
+  return /* @__PURE__ */ u.jsx(X.Provider, { value: h, children: e });
 }
-const a0 = () => {
-  const s = V2(S1);
-  if (s === void 0)
+const R1 = () => {
+  const e = g1(X);
+  if (e === void 0)
     throw new Error("useIconThemeContext must be used within an IconThemeProvider");
-  return s;
+  return e;
 };
 export {
-  W2 as FileIcon,
-  J2 as FolderIcon,
-  i as IconPack,
-  X2 as IconThemeProvider,
-  K2 as LanguageIcon,
-  c1 as MaterialIcon,
-  R2 as availableIcons,
-  S as fileIcons,
-  I as folderIcons,
-  D2 as getAllFileIcons,
-  I2 as getAllFolderIcons,
-  F2 as getAllIcons,
-  _2 as getAllIconsWithCategories,
-  Y2 as getAllLanguageIcons,
-  O2 as getAvailableFileExtensions,
-  U2 as getAvailableFileNames,
-  $2 as getAvailableFolderNames,
-  P2 as getAvailableLanguageIds,
-  _1 as getFileIcon,
-  E2 as getFolderIcon,
-  L2 as getIconSvg,
-  G2 as getLanguageIcon,
-  k2 as hasIcon,
-  t1 as iconData,
-  Y as languageIcons,
-  Q2 as searchIcons,
-  a0 as useIconThemeContext
+  G1 as FileIcon,
+  U1 as FolderIcon,
+  t as IconPack,
+  $1 as IconThemeProvider,
+  O1 as LanguageIcon,
+  T as MaterialIcon,
+  Z1 as availableIcons,
+  A as fileIcons,
+  L as folderIcons,
+  _1 as getAllFileIcons,
+  F1 as getAllFolderIcons,
+  y1 as getAllIcons,
+  B1 as getAllIconsWithCategories,
+  T1 as getAllLanguageIcons,
+  E1 as getAvailableFileExtensions,
+  N1 as getAvailableFileNames,
+  q1 as getAvailableFolderNames,
+  C1 as getAvailableLanguageIds,
+  Y as getFileIcon,
+  z1 as getFolderIcon,
+  x1 as getIconSvg,
+  j1 as getLanguageIcon,
+  H1 as hasIcon,
+  F as iconData,
+  k as languageIcons,
+  S1 as searchIcons,
+  R1 as useIconThemeContext
 };
 //# sourceMappingURL=index.esm.js.map

@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 import { default as default_2 } from 'react';
-import { JSX as JSX_2 } from 'react/jsx-runtime';
+import { JSX } from 'react';
 import { ReactNode } from 'react';
 
 export declare const availableIcons: string[];
@@ -105,7 +105,7 @@ declare type DefaultIcon = {
     highContrast?: boolean;
 };
 
-export declare function FileIcon({ fileName, fileExtension, languageId, fallback, iconPack, ...iconProps }: FileIconProps): JSX_2.Element;
+export declare function FileIcon({ fileName, fileExtension, languageId, fallback, iconPack, ...iconProps }: FileIconProps): JSX.Element;
 
 declare type FileIconClone = CustomClone & Pick<FileIconType, 'fileExtensions' | 'fileNames'>;
 
@@ -168,7 +168,7 @@ declare enum FileNamePattern {
     Dotfile = "dotfile"
 }
 
-export declare function FolderIcon({ folderName, isRoot, isOpen, theme, fallback, ...iconProps }: FolderIconProps): JSX_2.Element;
+export declare function FolderIcon({ folderName, isRoot, isOpen, theme, fallback, ...iconProps }: FolderIconProps): JSX.Element;
 
 declare type FolderIconClone = CustomClone & Pick<FolderIconType, 'folderNames' | 'rootFolderNames'>;
 
@@ -399,14 +399,14 @@ declare interface IconThemeContextType {
     resetConfig: () => void;
 }
 
-export declare function IconThemeProvider({ children, initialConfig }: IconThemeProviderProps): JSX_2.Element;
+export declare function IconThemeProvider({ children, initialConfig }: IconThemeProviderProps): JSX.Element;
 
 export declare interface IconThemeProviderProps {
     children: ReactNode;
     initialConfig?: Partial<IconThemeConfig>;
 }
 
-export declare function LanguageIcon({ fileName, fileExtension, languageId, fallback, iconPack, ...iconProps }: LanguageIconProps): JSX_2.Element;
+export declare function LanguageIcon({ fileName, fileExtension, languageId, fallback, iconPack, ...iconProps }: LanguageIconProps): JSX.Element;
 
 declare type LanguageIconClone = CustomClone & Pick<LanguageIconType, 'ids'>;
 
@@ -484,7 +484,7 @@ declare type LightSettingsWithCloneOptions = {
 
 declare type LogLevel = 'info' | 'error' | 'debug';
 
-export declare function MaterialIcon({ name, size, color, opacity, className, style, alt, light, onClick, }: MaterialIconProps): JSX_2.Element;
+export declare function MaterialIcon({ name, size, color, opacity, className, style, alt, light, onClick, }: MaterialIconProps): default_2.JSX.Element;
 
 export declare interface MaterialIconProps {
     /**
