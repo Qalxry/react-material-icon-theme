@@ -99,10 +99,11 @@ const mapPatterns = (patterns: Patterns): string[] => {
       case FileNamePattern.Dotfile:
         return [`.${fileName}`, fileName];
 
-      default:
+      default: {
         // Check if all potential pattern cases are handled
         const exhaustiveCheck: never = pattern;
         throw new Error(`Unhandled pattern: ${exhaustiveCheck}`);
+      }
     }
   });
 };
