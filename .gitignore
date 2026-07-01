@@ -26,3 +26,5 @@ test
 *.sw?
 
 .old
+
+ref_repos/ref_repos/

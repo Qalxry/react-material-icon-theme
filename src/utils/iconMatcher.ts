@@ -167,10 +167,39 @@ function findFolderIcon(folderName: string, isRoot: boolean): FolderIconType | u
     }
 
     if (isRoot && icon.rootFolderNames) {
-      return icon.rootFolderNames.includes(folderName);
+      if (icon.rootFolderNames.includes(folderName)) {
+        return true;
+      }
+      // Auto-expand root folder names with prefix/suffix variants
+      return icon.rootFolderNames.some((name) =>
+        name === folderName ||
+        name === `.${folderName}` ||
+        name === `_${folderName}` ||
+        name === `-${folderName}` ||
+        name === `__${folderName}__` ||
+        folderName === `.${name}` ||
+        folderName === `_${name}` ||
+        folderName === `-${name}` ||
+        folderName === `__${name}__`
+      );
     }
 
-    return icon.folderNames?.includes(folderName);
+    if (icon.folderNames?.includes(folderName)) {
+      return true;
+    }
+
+    // Auto-expand folder names with common prefix/suffix variants
+    return icon.folderNames?.some((name) =>
+      name === folderName ||
+      name === `.${folderName}` ||
+      name === `_${folderName}` ||
+      name === `-${folderName}` ||
+      name === `__${folderName}__` ||
+      folderName === `.${name}` ||
+      folderName === `_${name}` ||
+      folderName === `-${name}` ||
+      folderName === `__${name}__`
+    );
   });
 }
 

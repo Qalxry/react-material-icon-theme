@@ -10,6 +10,7 @@ export enum IconPack {
   Roblox = 'roblox',
   Qwik = 'qwik',
   Vue = 'vue',
+  Bashly = 'bashly',
   Vuex = 'vue_vuex',
 }
 

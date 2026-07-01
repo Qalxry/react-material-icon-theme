@@ -34,11 +34,17 @@ declare type BasicFolderIcon = DefaultIcon & LightSettingsWithCloneOptions & {
     /**
      * Define the folder names that should apply the icon.
      * E.g. `['src', 'source']`
+     *
+     * Names are automatically extended with dot, underscore, dash, and
+     * dunder variants (e.g. `'src'` also matches `.src`, `_src`, `-src`, `__src__`).
      */
     folderNames: string[];
     /**
      * Define the workspace (root) folder names that should apply the icon.
      * E.g. `['database']`
+     *
+     * Names are automatically extended with dot, underscore, dash, and
+     * dunder variants (e.g. `'database'` also matches `.database`, `_database`, `-database`, `__database__`).
      */
     rootFolderNames?: string[];
     /**
@@ -355,6 +361,7 @@ export declare enum IconPack {
     Roblox = "roblox",
     Qwik = "qwik",
     Vue = "vue",
+    Bashly = "bashly",
     Vuex = "vue_vuex"
 }
 
