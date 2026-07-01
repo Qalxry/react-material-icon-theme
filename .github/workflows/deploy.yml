@@ -1,10 +1,11 @@
-permissions:
-  contents: write
-
 name: Deploy Demo
 on:
   push:
     branches: [main]
+
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -13,8 +14,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
-      - run: cd examples/gh-pages && npm install && npm run build
+          cache: "npm"
+      - run: npm ci
+      - name: Install and build example
+        working-directory: ./examples/gh-pages
+        run: |
+          npm ci --legacy-peer-deps
+          npm run build
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
